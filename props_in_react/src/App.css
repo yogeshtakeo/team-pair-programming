@@ -2,3 +2,27 @@
   margin: 0;
   text-align: center;
 }
+
+.main {
+  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80');
+  height: 90vh;
+  width: 65vw;
+  object-fit: contain;
+  margin-top: 10px;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+button {
+  background-color: rgb(235, 122, 171);
+  width: 90px;
+  height: 40px;
+  border-radius: 10%;
+  margin-left: 380px;
+  
+
+
+}

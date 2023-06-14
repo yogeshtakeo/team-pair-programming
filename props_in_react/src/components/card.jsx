@@ -1,9 +1,11 @@
 import React from "react";
 import Button from "./button";
+import '../App.css'
 
 function Card(props) {
   return (
     <>
+    
       <div className="main">
         <h1>{props.heading1}</h1>
         <p>
