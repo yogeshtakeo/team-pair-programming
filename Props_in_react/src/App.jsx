@@ -8,8 +8,16 @@ function App() {
 
   return (
     <>
-      <Child1 name={'Kabina'} age={24}> FWD </Child1>
-      <Child2 name={'Jharana'} age={26}> FWD30 </Child2> 
+    
+      <div className='w-full h-96 p-4 bg-zinc-500 flex flex-col justify-center items-center m-10'>
+       <h2>Team Members</h2>
+       <div className='flex'> 
+        <Child1 name={'Name: Kabina '} 
+        age={"Age: 24"}> FWD </Child1>
+      <Child2 name={'name: Jharana '} 
+      age={"age: 26"}> FWD30 </Child2> 
+      </div>
+      </div>
     </>
   )
 }
