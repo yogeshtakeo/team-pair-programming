@@ -10,14 +10,18 @@ function App() {
   return (
     <>
       <div class="header">
-        {/* <h2 class='group'>Task 15 : Porps in React</h2> */}
-        <Title>Task 15 : Porps in React</Title>
+        <Title>Task 15 : Props in React</Title>
         <div class="group">
           <Input>search</Input>
           <Button>sign up</Button></div>
-        
       </div>
       <div className='content'></div>
+      <div className='content'>
+          <Input>First Name</Input>
+          <Input>Middle Name</Input>
+          <Input>Last Name</Input>
+          <Button>Submit</Button> 
+      </div>
 
     </>
   )
