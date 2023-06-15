@@ -2,6 +2,6 @@
 
 <ul>
 <h3>Team Members :</h3>
-<li></li>
-<li></li>
+<li>Namkhang Tsamchoe</li>
+<li>Sandesh Shrestha</li>
 </ul>
