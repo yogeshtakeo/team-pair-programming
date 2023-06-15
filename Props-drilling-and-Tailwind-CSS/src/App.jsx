@@ -4,8 +4,11 @@ import './App.css'
 import Buttons from './Components/Buttons'
 import Card from './Components/Card'
 import Form from './Components/Form'
-import LoginForm from './Components/LoginForm'
+
 import Button from './Components/Buttons'
+import Gallery from './Components/Gallery';
+{/* <LoginForm btn1={"kabina ko button"}/>
+<Button primary={true}>Bdabaloo</Button> */}
 
 function App() {
  
@@ -13,8 +16,8 @@ function App() {
   return (
     <>
     <div>
-      <LoginForm btn1={"kabina ko button"}/>
-      <Button primary={true}>Bdabaloo</Button>
+      <Gallery/>
+      
       </div>
     </>
   )
