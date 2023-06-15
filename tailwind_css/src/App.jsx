@@ -1,12 +1,30 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
+import Card from "./component/Card";
 
 function App() {
-  const [count, setCount] = useState(0);
+  return (
+    <>
+      <div className="flex justify-around bg-lime-100">
+        <a href="Home">Home</a>
 
-  return <></>;
+        <a href="News">News</a>
+
+        <a href="Contact">Contact</a>
+
+        <a href="About">About</a>
+      </div>
+      <div className=" mt-10 flex p-2.5 justify-around">
+        <Card category="Clothing" image="">
+          Card
+        </Card>
+        <Card category="Electronics">Card</Card>
+        <Card category="Home Appliances">Card</Card>
+        <Card category="Beauty">Card</Card>
+      </div>
+    </>
+  );
 }
 
 export default App;
