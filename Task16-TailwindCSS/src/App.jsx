@@ -4,7 +4,11 @@ import './App.css'
 function App() {
  return(
   <>
-    <Button/>
+    <div className= "flex ">
+    <Button>CLICK ME!</Button>
+    <Button>CLICK 2!</Button>
+    <Button>CLICK 3!</Button>
+    </div>
   </>
  )
 }
