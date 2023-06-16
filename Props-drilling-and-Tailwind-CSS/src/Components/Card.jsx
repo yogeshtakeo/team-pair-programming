@@ -5,20 +5,33 @@ import Button from './Button'
 const Card = (props) => {
   return (
     <>
+    <div >
     {(props.img1)?
-    <div className='w-96 mr-4 h-80 flex justify-center items-center flex-col p-2 text-sm bg-slate-200 border-solid rounded-lg '>
+    <div className='flex w-full'>
+    <div className='w-80 mr-4 h-96 flex justify-center items-center flex-col p-2 text-sm bg-zinc-400 border-solid rounded-lg pb-4 shadow-xl shadow-neutral-700 '>
       <Button tertiary={true}>X</Button> 
-       <div className= 'flex justify-center items-center rounded-xl w-72 h-full m-1 p-1 border-2 border-blue-400 border-solid bg-slate-200'>
+       <div className= 'flex justify-center items-center rounded-2xl w-56 h-full m-1 border-2 p-1 border-zinc-600 border-solid'>
        
        <img className='rounded-2xl h-full hover:scale-110' src={props.src} alt={props.name}/></div> 
-        {props.children} </div>
+        {props.children}
+        <Button secondary={true}>Read More</Button>
+         </div>
+        
+        </div>
          :(
-        <div className='w-96 h-80 flex justify-center items-center flex-col p-2 text-sm bg-slate-200 border-solid rounded-lg '>
+          
+        <div className='w-80 h-96 mr-4 flex justify-center items-center flex-col p-1 text-sm bg-zinc-400 border-solid rounded-lg pb-4 shadow-xl shadow-neutral-700 '>
          <Button tertiary={true}>X</Button> 
-         <div className= 'flex justify-center items-center rounded-xl w-72 h-full m-1 p-1 border-2 border-blue-400 border-solid bg-slate-200'>
-          <img className='rounded-2xl h-full' src={props.src} alt={props.name}/></div> 
-          {props.children} </div>
+         <div className= 'flex justify-center items-center rounded-xl w-56 h-full m-1 p-1 border-2 border-zinc-600 border-solid'>
+          <img className='rounded-2xl h-full hover:scale-110' src={props.src} alt={props.name}/>
+          </div> 
+          {props.children}  <Button secondary={true}>Read More</Button>
+          </div>
+          
+        
 )}
+</div>
+
           </>
       )
 }
