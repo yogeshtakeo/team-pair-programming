@@ -11,7 +11,8 @@ function Card(props) {
           <img className="object-cover" src={props.image} />
         </div>
 
-        <Button>Check Out</Button>
+        <Button primary>Check out</Button>
+        
       </div>
     </>
   );
