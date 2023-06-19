@@ -1,6 +1,51 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* css reset */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.circle-img {
+  border: solid black 5px;
+  border-radius: 5%;
+  padding: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 10px;
+  padding-left: 60px;
+  margin: 10px;
+}
+
+h1 {
+  font-family: fantasy;
+  font-size: xx-large;
+  text-transform: capitalize;
+  align-content: center;
+}
+
+.FatherDay {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  color: black;
+  text-decoration: wavy;
+  word-wrap: inherit;
+}
+
+h2 {
+  color: black;
+  font-weight: bolder;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: auto;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 }
