@@ -13,7 +13,7 @@ const Gallery = (props) => {
 
   return (
     <>
-      <div className="w-full bg-fuchsia-200 md:flex md:flex-row h-auto flex-col justify-center items-center ">
+      <div className="w-full md:flex md:flex-row h-auto flex-col justify-center items-center ">
         <Card img1={true} image src={ak} name="image">
           <p> Vibrant scene of a Hot balloon</p>
         </Card>
