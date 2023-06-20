@@ -26,7 +26,7 @@ const Form = (props) => {
            placeholder={props.placeholder}
            value={input}
            onChange={handleChange}></input>
-            {props.showButton ?(<Button primary={true} disabled={false} > Subscribe </Button>):('')}
+           {props.showButton ?(<Button primary={true} disabled={false} > Subscribe </Button>):('')}
            
            
            <div className='flex border-2 border-transparent items-center text-center mt-6 text-white text-lg'>
