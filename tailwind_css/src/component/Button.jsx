@@ -12,7 +12,10 @@ function Button(props) {
     );
   else secondary;
   return (
-    <button disabled={props.disable} className="bg-orange-400 w-32 rounded ">
+    <button
+      disabled={props.disable}
+      onClick={props.onclick}
+      className="bg-orange-400 w-32 rounded ">
       {props.children}
     </button>
   );
