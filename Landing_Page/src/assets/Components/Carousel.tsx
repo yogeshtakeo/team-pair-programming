@@ -35,7 +35,7 @@ const Carousel = () => {
     //next function
     const handleNext=()=>{
         const lastSlide=index===slides.length-1
-        const newSlide=lastSlide?0: index+1
+        const newSlide=lastSlide ? 0: index+1
         setIndex(newSlide)
     }
   return (
@@ -47,7 +47,7 @@ const Carousel = () => {
                 
         <div className='w-full h-full bg-black bg-opacity-70'>
         <Navbar/>
-        <div className=' w-full h-full flex flex-col justify-center'>
+        <div className=' w-full h-auto flex flex-col justify-center items-center bg-slate-400'>
         <div className='absolute bottom-[45%] left-16 text-slate-300 hover:scale-150'>
        <AiFillCaretLeft size={35} onClick={handlePrev}/>
        </div> 
