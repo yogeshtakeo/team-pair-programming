@@ -14,7 +14,7 @@ function Modal() {
     <div>
 <BsFillPersonFill size={25} onClick={handleOpen}/>
 {isOpen ? (
-<div className='absolute right-[30%] left-[30%] top-32 w-[40%] h-auto p-24  border-2 border-zinc-700 rounded-xl bg-zinc-800 m-auto flex flex-col justify-center items-center'>
+<div className='absolute right-[30%] left-[30%] top-24 w-[40%] h-auto p-24  border-2 border-zinc-900 rounded-xl  backdrop-blur-2xl m-auto flex flex-col justify-center items-center'>
   <h1 className='uppercase text-xl'>Create an Account</h1>
 <input className='border-2 border-zinc-700 rounded-xl p-4  mb-12 mt-12 w-full text-black' type="text" placeholder="Enter your email address"/>
 <input className='border-2  border-zinc-700 rounded-xl p-4 w-full text-black ' type="password" placeholder="Enter your password"/>

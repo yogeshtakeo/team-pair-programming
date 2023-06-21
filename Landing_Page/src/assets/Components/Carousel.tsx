@@ -56,7 +56,7 @@ const Carousel = () => {
        <AiFillCaretRight size={35} onClick={handleNext}/>
        </div>
 
-       <div className='flex flex-col justify-center items-center border-2 border-slate-500 border-l-0 border-r-0'>
+       <div className='flex flex-col justify-center items-center border-2 border-slate-500 h-74 border-l-0 border-r-0 '>
         {slides[index].texts.map((items:string, index:number)=>(
             <li className='list-none text-neutral-100 text-3xl mb-12 mt-12' key={index}>{items}</li>
             ))}
