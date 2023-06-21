@@ -7,6 +7,7 @@ import {AiFillCaretLeft} from 'react-icons/ai'
 import{AiFillCaretRight} from 'react-icons/ai'
 import Navbar from './Navbar'
 import Toast from './Toast'
+import CourseCard from './CourseCard'
 
 const Carousel = () => {
     //useState to update state of index onClick
@@ -65,6 +66,10 @@ const Carousel = () => {
         <Toast/>
         </div>
 
+        </div>
+
+        <div className=' w-2/3 m-9 border-2 border-black backdrop-blur-2xl flex justify-center'> 
+        <CourseCard /> 
         </div>
        </div>
        </div>
