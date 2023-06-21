@@ -48,28 +48,24 @@ const Carousel = () => {
                 
         <div className='w-full h-full bg-black bg-opacity-70'>
         <Navbar/>
-        <div className=' w-full h-auto flex flex-col justify-center items-center bg-slate-400'>
-        <div className='absolute bottom-[45%] left-16 text-slate-300 hover:scale-150'>
+        <div className='w-full h-auto mt-32 flex flex-col justify-center'>
+        <div className='absolute bottom-[45%] left-16 text-slate-300 hover:scale-150 cursor-pointer'>
        <AiFillCaretLeft size={35} onClick={handlePrev}/>
        </div> 
 
-       <div className='absolute bottom-[45%] right-16 text-slate-300 hover:scale-150'>
+       <div className='absolute bottom-[45%] right-16 text-slate-300 hover:scale-150 cursor-pointer'>
        <AiFillCaretRight size={35} onClick={handleNext}/>
        </div>
 
-       <div className='flex flex-col justify-center items-center border-2 border-slate-500 h-74 border-l-0 border-r-0 '>
+       <div className='flex flex-col justify-center items-center p-10 border-2 border-zinc-400 h-74 border-l-0 border-r-0 '>
         {slides[index].texts.map((items:string, index:number)=>(
-            <li className='list-none text-neutral-100 text-3xl mb-12 mt-12' key={index}>{items}</li>
+            <li className='list-none text-neutral-100 text-3xl mb-8 mt-8' key={index}>{items}</li>
             ))}
         </div>
         <div className= 'flex border-2 rounded-full p-2 justify-center text-center absolute right-12 top-[90%] text-white'>
         <Toast/>
         </div>
 
-        </div>
-
-        <div className=' w-2/3 m-9 border-2 border-black backdrop-blur-2xl flex justify-center'> 
-        <CourseCard /> 
         </div>
        </div>
        </div>

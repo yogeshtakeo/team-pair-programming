@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 //import{BsFillPersonFill} from 'react-icons/bs'
 import Modal from './Modal'
+import CourseCard from './CourseCard'
 
 
 function Navbar() {
@@ -13,12 +14,12 @@ function Navbar() {
             <li className="text-3xl">JS Business School</li>
         </ul>
         <ul className='flex gap-4 text-lg'>
-            <li className='hover:border-2 rounded-lg pl-2 pr-2'>PROGRAMMES</li>
-            <li className='hover:border-2 rounded-lg pl-2 pr-2'>ARTICLES & EVENTS</li>
-            <li className='hover:border-2 rounded-lg pl-2 pr-2'>ABOUT US</li>
-            <li className='hover:border-2 rounded-lg pl-2 pr-2'>BUSINESS INNOVATION</li>
-            <li className='hover:border-2 rounded-lg pl-2 pr-2'><AiOutlineSearch size={25}/></li>
-            <li className='hover:border-2 rounded-lg pl-2 pr-2' ><Modal/></li>
+            <li className='hover:border-2 rounded-lg pl-2 pr-2 cursor-pointer'><CourseCard/></li>
+            <li className='hover:border-2 rounded-lg pl-2 pr-2 cursor-pointer'>ARTICLES & EVENTS</li>
+            <li className='hover:border-2 rounded-lg pl-2 pr-2 cursor-pointer'>ABOUT US</li>
+            <li className='hover:border-2 rounded-lg pl-2 pr-2 cursor-pointer'>BUSINESS INNOVATION</li>
+            <li className='hover:border-2 rounded-lg pl-2 pr-2 cursor-pointer'><AiOutlineSearch size={25}/></li>
+            <li className='hover:border-2 rounded-lg pl-2 pr-2 cursor-pointer' ><Modal/></li>
         </ul>
         </div>
     
