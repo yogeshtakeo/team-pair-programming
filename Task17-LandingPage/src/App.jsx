@@ -1,13 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Navbar from './Components/Navbar'
+import Modal from './Components/Modal'
+import React from 'react'
 function App() {
   
   return(
-    <>
-    Hello
+  <>
+  <div>
+    <Navbar>Home</Navbar>
+    <Navbar>Services</Navbar>
+    <Navbar>Blogs</Navbar>
+    <Navbar>Login</Navbar>
+    <Navbar>Sign-up</Navbar>
+  </div>
+
+
+    {/* <button className='bg-black-200'>click</button> */}
     </>
   )
   
