@@ -1,9 +1,28 @@
 import React from "react";
 import { Carousel, initTE } from "tw-elements";
+import { useState, useEffect } from "react";
 
 function Imageslider() {
-  function ChangeImage() {}
+  const images = [
+    "https://thumbs.dreamstime.com/b/bu-diamond-building-bangkok-university-rangsit-college-thailand-february-symbol-creativity-also-place-73118975.jpg",
+    "https://previews.123rf.com/images/leaf/leaf1109/leaf110900450/10723370-college-students-studying-on-university-campus-ground.jpg",
+    "https://mdbcdn.b-cdn.net/img/new/slides/043.webp",
+  ];
   initTE({ Carousel });
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  function ChangeImage() {
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 3000);
+
+      return () => {
+        clearInterval(interval);
+      };
+    }, [images.length]);
+  }
+
   return (
     <>
       <div
@@ -17,7 +36,7 @@ function Imageslider() {
             data-te-carousel-item
             data-te-carousel-active>
             <img
-              src="https://thumbs.dreamstime.com/b/bu-diamond-building-bangkok-university-rangsit-college-thailand-february-symbol-creativity-also-place-73118975.jpg"
+              src={images[currentIndex]}
               className="block w-full h-96 rounded"
               alt="Wild Landscape"
             />
@@ -27,7 +46,7 @@ function Imageslider() {
             className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-item>
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+              src={images[currentIndex]}
               className="block w-full"
               alt="Camera"
             />
@@ -37,7 +56,7 @@ function Imageslider() {
             className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-item>
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
+              src={images[currentIndex]}
               className="block w-full"
               alt="Exotic Fruits"
             />
