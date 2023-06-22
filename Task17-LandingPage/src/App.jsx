@@ -9,12 +9,7 @@ import {useState} from 'react'
 
 
 function App() {
-  const renderComponent = () => { return 
-    <div>
-        { console.log(<Modal/>) }
-        
-    </div>
-  }
+  
   return(
   <>
   {/* <div className='flex sm:justify-around space-x-12 bg-blue-200 py-4'> */}
@@ -30,11 +25,12 @@ function App() {
         <Navbar>ACADEMICS</Navbar>
         <Navbar>FINANCIAL AID</Navbar>
         <Navbar>ADMISSIONS</Navbar>
-        <Navbar onClick={renderComponent}>APPLY</Navbar>
+        <Navbar>APPLY</Navbar>
+        <button className="font-medium bg-gray-100 px-2 rounded">LOG IN</button>
     </div>
   </div>
  
-    
+    <Modal/>
   <div>
     <Footer/>
   </div> 
