@@ -4,25 +4,40 @@ import React from 'react'
 import Toast from './Components/Toast'
 import CourseCard from './Components/CourseCard'
 import Footer from './Components/Footer'
-
+import LoginForm from './Components/Toast'
+import {useState} from 'react'
 
 
 function App() {
-  
+  const renderComponent = () => { return 
+    <div>
+        { console.log(<Modal/>) }
+        
+    </div>
+  }
   return(
   <>
   {/* <div className='flex sm:justify-around space-x-12 bg-blue-200 py-4'> */}
-  <div className="flex justify-around space-x-4 bg-blue-200 py-5">
-    <Navbar className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</Navbar>
-    <Navbar className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Services</Navbar>
-    <Navbar className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Blogs</Navbar>
-    <Navbar className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Login</Navbar>
-    <Navbar className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Sign-up</Navbar>
+  <div className='flex flex-row items-center bg-rose-100 py-2'>
+    
+      <a href="Logo" className='grid grid-cols-2 items-end relative left-10'>
+        <img src="https://www.logolynx.com/images/logolynx/ab/ab3cf43cb423c7d9c20eadde6a051a5d.jpeg" className= "h-8 m-2" alt="CUNY Logo" />
+        <span className=" self-center font-large py-2 whitespace-nowrap ">C.U.N.Y</span>
+      </a>
+      
+      <div className='grid grid-flow-col fixed right-10'>
+        <Navbar>ABOUT</Navbar>
+        <Navbar>ACADEMICS</Navbar>
+        <Navbar>FINANCIAL AID</Navbar>
+        <Navbar>ADMISSIONS</Navbar>
+        <Navbar onClick={renderComponent}>APPLY</Navbar>
+    </div>
   </div>
-
-  {/* <div>
-    <Footer className="relative bottom-0"/>
-  </div> */}
+ 
+    
+  <div>
+    <Footer/>
+  </div> 
     </>
   )
   
