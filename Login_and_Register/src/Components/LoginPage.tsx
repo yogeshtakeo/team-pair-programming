@@ -3,8 +3,11 @@ import React from 'react'
 const LoginPage = () => {
   return (
   <>
-        <div>
-        hi
+  <div>
+        <form>
+           <label></label>
+
+        </form>
     </div>
     </>
   )
