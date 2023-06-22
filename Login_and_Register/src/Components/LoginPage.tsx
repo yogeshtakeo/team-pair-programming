@@ -1,10 +1,14 @@
 import React,{useState} from 'react'
 import { ChangeEvent, FormEvent } from 'react';
+import {  redirect, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
     const[password, setPassword]=useState('')
-    const[submit, setSubmit]=useState('')
+    //const[data, setData]=useState<{email:string, password:string}|null>(null)
+    
+    const navigate=useNavigate()
+    
     const handleEmail=(event:ChangeEvent<HTMLInputElement>)=>{
         setEmail(event.target.value)
      }
@@ -13,13 +17,14 @@ const LoginPage = () => {
     }
     const handleSubmit=(event:FormEvent<HTMLFormElement>)=>{
         event.preventDefault()
-        const formData={
-            email,
-            password,
-        }
-        setSubmit(formData)
+        //const newData={
+           // email,
+            //password,
+       // }
+        //setData(newData)
         setEmail('')
         setPassword('')
+       navigate("/HomePage")
         
     }
 
@@ -33,9 +38,14 @@ const LoginPage = () => {
            <input className='border-2 border-black rounded-md p-2 mb-8' type="email" id="email" value={email} onChange={handleEmail}/>
            <label className='text-lg' htmlFor='password'>Password</label>
            <input  className='border-2 border-black rounded-md p-2' type="password" id="password" value={password} onChange={handlePassword}/>
-           </form>
            <button className='border-2 border-black mt-8 rounded-md w-32 mx-auto p-1' type="submit">Log In</button>
+           </form>
+           
+           {email}
+    {password}
+    
     </div>
+   
     </>
   )
 }
