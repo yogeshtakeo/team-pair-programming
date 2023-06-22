@@ -2,7 +2,7 @@ import "./App.css";
 import Button from "./components/Button.jsx";
 import Card from "./components/Card.jsx";
 import options from "./components/Card.js";
-import form from "./components/Form";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -46,6 +46,9 @@ function App() {
           <Button>Save For Later</Button>
           <Button>Check The Cart</Button>
         </div>
+
+        <Form />
+
         <footer>copy right@2023 Namkhang and Sandesh Task</footer>
       </div>
     </>
