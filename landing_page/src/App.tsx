@@ -5,6 +5,7 @@ import Imageslider from "./components/Imageslider";
 import Modal from "./components/Modal/Modal";
 import Footer from "./components/Footer";
 import Coursecard from "./components/Coursecard";
+import Toast from "./components/Toast";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           title="Our Students"
           img_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6DNMGOmO-zOGG-jxQnW81OnX1LXyBMC-H8g&usqp=CAU"></Coursecard>
       </div>
+      <Toast />
 
       <Footer />
     </>
