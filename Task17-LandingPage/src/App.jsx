@@ -1,6 +1,12 @@
 import Navbar from './Components/Navbar'
 import Modal from './Components/Modal'
 import React from 'react'
+import Toast from './Components/Toast'
+import CourseCard from './Components/CourseCard'
+import Footer from './Components/Footer'
+
+
+
 function App() {
   
   return(
