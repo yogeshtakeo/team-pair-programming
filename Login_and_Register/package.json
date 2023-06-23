@@ -12,11 +12,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
     "react-router-dom": "^6.13.0"
-=======
-    "validator": "^13.9.0"
->>>>>>> 4370ffa1b9b0399c8a032974f32a84b75dfed43a
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

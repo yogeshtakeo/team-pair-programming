@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
-import { ChangeEvent, FormEvent } from 'react';
-import {  redirect, useNavigate } from 'react-router-dom';
+import { ChangeEvent} from 'react';
+import {useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
     const[password, setPassword]=useState('')
-    //const[data, setData]=useState<{email:string, password:string}|null>(null)
+    
     
     const navigate=useNavigate()
     
@@ -15,18 +15,18 @@ const LoginPage = () => {
     const handlePassword=(event:ChangeEvent<HTMLInputElement>)=>{
         setPassword(event.target.value)
     }
-    const handleSubmit=(event:FormEvent<HTMLFormElement>)=>{
+    const handleSubmit=(event:React.FormEvent)=>{
         event.preventDefault()
-        //const newData={
-           // email,
-            //password,
-       // }
-        //setData(newData)
+        
+       
+        
         setEmail('')
         setPassword('')
-       navigate("/HomePage")
+       navigate("/HomePage")}
+      
+       
         
-    }
+    
 
     
   return (
@@ -43,7 +43,7 @@ const LoginPage = () => {
            
            {email}
     {password}
-    
+    {data}
     </div>
    
     </>
