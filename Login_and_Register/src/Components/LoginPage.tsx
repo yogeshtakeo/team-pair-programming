@@ -43,7 +43,7 @@ const LoginPage = () => {
            
            {email}
     {password}
-    {data}
+    
     </div>
    
     </>
