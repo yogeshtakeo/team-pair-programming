@@ -2,6 +2,10 @@ import React,{useState,ChangeEvent,FormEvent} from 'react'
 import {useNavigate } from 'react-router-dom';
 export default function RegisterPage() {
   const navigate=useNavigate()
+  const[username, setUsername]=useState('')
+  const[password, setPassword]=useState('')
+  const[emain, setEmail]=useState('')
+  cons
  
   const handleSubmit=(event:FormEvent<HTMLFormElement>)=>{
     event.preventDefault()
