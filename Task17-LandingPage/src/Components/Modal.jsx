@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import App from '../App'
+import Navbar from './Navbar'
 
 
-
-function Modal({props, e}) {
+function Modal(props) {
 
 return (
   <>
+  
     <div className='inline-block bg-gray-200 border-solid border-gray-500 border-2 m-10 p-5'>
       
         <div className= "p-2">
@@ -18,11 +20,8 @@ return (
 
         </div>
         <div className= "p-2">
-          <button className='button'>CLOSE</button>
-        </div>
-
-
-      
+          <button onClick={props.onClick}>CLOSE</button>
+        </div>    
     </div>
   </>
 
