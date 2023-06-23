@@ -1,7 +1,13 @@
 import viteLogo from "/vite.svg";
+// import React from "react";
+import { useState } from "react";
+
 
 function FirstVisit() {
-  return (
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
+    
+    return (
     <>
       {console.log("first visit")}
       <div className="flex justify-center items-center mt-10 drop-shadow-lg">
@@ -40,10 +46,12 @@ function FirstVisit() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={login}
+                        onChange={event=> setLogin(event.target.value)}
+                      
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -67,7 +75,8 @@ function FirstVisit() {
                       id="password"
                       name="password"
                       type="password"
-                      required
+                      value={password}
+                        onChange={event=> setPassword(event.target.value)}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -76,7 +85,7 @@ function FirstVisit() {
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign in
                   </button>

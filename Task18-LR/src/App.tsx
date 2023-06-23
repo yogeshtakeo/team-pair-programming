@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
+
 const apiUrl = "https://backend-namkhang.vercel.app/clients";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   return (
     <div>
       <Outlet />
+      {/* <Register/> */}
     </div>
   );
 }

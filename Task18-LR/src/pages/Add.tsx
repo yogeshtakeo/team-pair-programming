@@ -1,170 +1,194 @@
-import { useState } from "react";
+
 
 function Add() {
-  const [id, setId] = useState("");
-  const [company, setCompany] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [notes, setNotes] = useState("");
-  const handleFill = () => {
-    setId("900");
-    setEmail("ntnamkhang@gmail.com");
-  };
 
-  const handleSubmit = () => {
-    console.log(id, company, email, name, phone, notes);
-  };
 
   return (
-    <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4">The List of Fakebook Friends:</h2>
-      <button
-        onClick={handleFill}
-        type="button"
-        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-      >
-        Auto Fill Id
-      </button>
-
-      {/* this is for id field */}
-
-      <div className="mb-6">
-        <label
-          htmlFor="default-input"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          ID
-        </label>
-        <input
-          value={id}
-          onChange={(event) => setId(event.target.value)}
-          type="text"
-          id="default-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="please enter company ID"
-        />
-      </div>
-
-      {/* this is for company field */}
-
-      <div className="mb-6">
-        <label
-          htmlFor="default-input"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Company
-        </label>
-        <input
-          value={company}
-          onChange={(event) => setCompany(event.target.value)}
-          type="text"
-          id="default-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="please enter company Name"
-        />
-      </div>
-
-      {/* this is for client name field */}
-
-      <div className="mb-6">
-        <label
-          htmlFor="default-input"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Name
-        </label>
-        <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          type="text"
-          id="default-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="please enter your Name"
-        />
-      </div>
-
-      {/* this is for email field */}
-
-      <div className="relative mb-6">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <svg
-            aria-hidden="true"
-            className="w-5 h-5 text-gray-500 dark:text-gray-400"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-          </svg>
+<div className="flex justify-center p-4">
+    <div className="w-1/2">
+<form>
+  
+  <div className="space-y-12">
+    <div className="border-b border-gray-900/10 pb-12">
+      
+      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div className="sm:col-span-6">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Username</label>
+          <div className="mt-2">
+            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">faker.</span>
+              <input type="text" name="username" id="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="uniqueYogesh"/>
+            </div>
+          </div>
         </div>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          type="text"
-          id="default-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="please enter your email address"
-        />
+        <div className="sm:col-span-3">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Password</label>
+          <div className="mt-2">
+            <input type="text" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+        <div className="sm:col-span-3">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Re-enter Password</label>
+          <div className="mt-2">
+            <input type="text" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+        <div className="sm:col-span-3">
+          <label className="block text-sm font-medium leading-6 text-gray-900">First name</label>
+          <div className="mt-2">
+            <input type="text" name="first-name" id="first-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+
+        <div className="sm:col-span-3">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+          <div className="mt-2">
+            <input type="text" name="last-name" id="last-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+        <div className="sm:col-span-6">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <div className="mt-2">
+            <input id="email" name="email" type="email"  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+
+        <div className="sm:col-span-3">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Country</label>
+          <div className="mt-2">
+            <select id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Mexico</option>
+              <option>Great Britain</option>
+              <option>France</option>
+              <option>Spain</option>
+              <option>Nepal</option>
+              <option>Japan</option>
+              <option>China</option>
+              <option>Taiwan</option>
+              <option>Russia</option>
+              <option>Philipines</option>
+              <option>New Zealand</option>
+              <option>Ausrtalia</option>
+              <option>Fiji</option>
+              <option>Thailand</option>
+              <option>India</option>
+              <option>Pakistan</option>
+              <option>Saudi Arabia</option>
+              <option>Turkey</option>
+              <option>Greece</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="col-span-full">
+          <label  className="block text-sm font-medium leading-6 text-gray-900">Street address</label>
+          <div className="mt-2">
+            <input type="text" name="street-address" id="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+
+        <div className="sm:col-span-2 sm:col-start-1">
+          <label className="block text-sm font-medium leading-6 text-gray-900">City</label>
+          <div className="mt-2">
+            <input type="text" name="city" id="city" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+
+        <div className="sm:col-span-2">
+          <label className="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
+          <div className="mt-2">
+            <input type="text" name="region" id="region" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+
+        <div className="sm:col-span-2">
+          <label className="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
+          <div className="mt-2">
+            <input type="text" name="postal-code" id="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          </div>
+        </div>
+        <div className="col-span-full">
+          <label className="block text-sm font-medium leading-6 text-gray-900">About</label>
+          <div className="mt-2">
+            <textarea id="about" name="about" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+          </div>
+          <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
+        </div>
+
+        <div className="col-span-full">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
+          <div className="mt-2 flex items-center gap-x-3">
+            <svg className="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+            </svg>
+            <button type="button" className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
+          </div>
+        </div>
+
+        <div className="col-span-full">
+          <label className="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
+          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+            <div className="text-center">
+              <svg className="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+              </svg>
+              <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                <label className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                  <span>Upload a file</span>
+                  <input id="file-upload" name="file-upload" type="file" className="sr-only"/>
+                </label>
+                <p className="pl-1">or drag and drop</p>
+              </div>
+              <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* this is for phone number field */}
-
-      <div className="mb-6">
-        <label
-          htmlFor="default-input"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Phone
-        </label>
-        <input
-          value={phone}
-          onChange={(event) => setPhone(event.target.value)}
-          type="text"
-          id="default-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="please enter phone number"
-        />
-      </div>
-
-      {/* this is for notes field */}
-
-      <div className="mb-6">
-        <label
-          htmlFor="default-input"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Additional Notes
-        </label>
-        <input
-          value={notes}
-          onChange={(event) => setNotes(event.target.value)}
-          type="text"
-          id="default-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="please write notes here"
-        />
-      </div>
-
-      <button
-        onClick={handleSubmit}
-        type="button"
-        className=" w-50 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-      >
-        Add Fakebook Friend
-      </button>
-
-      <a href="/home">
-        <button
-          type="button"
-          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-          Check Your Fakebook Friend List
-        </button>
-      </a>
     </div>
-  );
+
+    
+
+    <div className="border-b border-gray-900/10 pb-12">
+      
+      <div className="mt-10 space-y-10">
+        <fieldset>
+                    <div className="mt-6 space-y-6">
+            <div className="relative flex gap-x-3">
+              <div className="flex h-6 items-center">
+                <input id="comments" name="comments" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+              </div>
+              <div className="text-sm leading-6">
+                <label className="font-medium text-gray-900">I acknowledge that I have read the terms and conditions and agree to abide by the terms and conditions.</label>
+              </div>
+            </div>
+            <div className="relative flex gap-x-3">
+              <div className="flex h-6 items-center">
+                <input id="candidates" name="candidates" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+              </div>
+              <div className="text-sm leading-6">
+                <label className="font-medium text-gray-900">More contracts. Blah Blah Blah Blah.</label>
+                
+              </div>
+            </div>
+            
+          </div>
+        </fieldset>
+        
+      </div>
+    </div>
+  </div>
+
+  <div className="mt-6 flex items-center justify-end gap-x-6">
+    <button type="button" className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+    <button type="submit" className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+  </div>
+</form>
+</div>
+</div>
+
+  )
 }
 
 export default Add;
