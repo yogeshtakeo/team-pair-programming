@@ -1,0 +1,18 @@
+<SimpleImageSlider
+   width={690}
+   height={470}
+   images={sliderImages}
+   showNavs={true}
+/> 
+export default SimpleImageSlider
+import React from 'react'
+
+function SimpleImageSlider(props) {
+  return (
+    <>
+    {props.width}
+    </>
+  )
+}
+
+export default SimpleImageSlider
