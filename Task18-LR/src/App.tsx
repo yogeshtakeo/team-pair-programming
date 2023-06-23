@@ -1,14 +1,19 @@
-import FirstVisit from './pages/FirstVisit'
-import Register from './pages/Register'
+import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+
+const apiUrl = "https://backend-namkhang.vercel.app/clients";
+
 function App() {
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
-  <>  
-        {console.log("App")}
-       <FirstVisit/>
-       {/* <Register/> */}
-       
-  </>
-)
+    <div>
+      <Outlet />
+    </div>
+  );
 }
 
-export default App
+export default App;
