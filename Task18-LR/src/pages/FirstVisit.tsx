@@ -86,10 +86,10 @@ function FirstVisit() {
                 <p className=" text-center text-sm text-gray-500 px-6 py-6">
                   Not a member yet?&nbsp;
                   <a
-                    href="./Home"
-                    className="font-semibold leading-6 text-xl text-indigo-600 hover:text-indigo-500"
+                    href="./add"
+                    className="font-semibold leading-6 text-l text-indigo-600 hover:text-indigo-500 ml-2 mr-2"
                   >
-                    Sign Up{" "}
+                    Sign Up and Add New Friends
                   </a>
                   Now!
                 </p>
