@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { ChangeEvent} from 'react';
-import {useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
@@ -8,6 +8,7 @@ const LoginPage = () => {
     
     
     const navigate=useNavigate()
+    const location=useLocation()
     
     const handleEmail=(event:ChangeEvent<HTMLInputElement>)=>{
         setEmail(event.target.value)
@@ -17,16 +18,18 @@ const LoginPage = () => {
     }
     const handleSubmit=(event:React.FormEvent)=>{
         event.preventDefault()
-        
+       const confirmPassword=location?.state?.confirmPassword
+       if(password===confirmPassword){
        
-        
-        setEmail('')
-        setPassword('')
        navigate("/HomePage")}
-      
        
+       else{
+        alert("You entered wrong password")
+       }
+       setEmail('')
+       setPassword('')
         
-    
+      }
 
     
   return (
