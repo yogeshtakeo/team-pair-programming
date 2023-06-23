@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loginpage = () => {
   return (
-    <div>
+    <div className=''>
       <h1> Frontend world </h1>
       <form>
         <input type='email' placeholder='email'/>
