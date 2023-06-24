@@ -1,6 +1,15 @@
-import { useState } from "react";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+
+
+// import home from "./Home";
+// import { IClient } from "../types/data";
+
+const apiUrl = " http://localhost:3000/clients";
 
 function Add() {
+  const navigate=useNavigate()
+
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
@@ -13,11 +22,46 @@ function Add() {
   const [state, setState] = useState('')
   const [zip, setZip] = useState('')
   const [about, setAbout] = useState('')
+  const [error, setError]=useState('')
   // const [condition1, setCondition1] = useState(false)
   // const [condition2, setCondition2] = useState(false)
+  // ||!password||!password2||!fName||!lName||!email||!country||!street||!city||!state||!zip||!about
+  const handleSubmit = () => {
+    if(!userName){
+      setError('Please input all fields')
+     }
+     else if(password!==password2){
+      setError('Passwords do not match')
+     }
+     else{
+  fetch(apiUrl, {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      userid: userName, 
+      password: password,
+      fName: fName,
+      lName:lName,
+      email: email,
+      country: country, 
+      street:  street,
+      city: city,
+      state: state, 
+      zip: zip,
+      about: about
+    })
+  }).then(response=>response.json()).then(response => {
+      console.log(response)
+  }).catch(error => {
+      console.log(error)
+  })
+  navigate('/')
+}
+}
 
-
-  return (
+  return (<>
 <div className="flex justify-center p-4">
     <div className="w-1/2">
 <form>
@@ -139,7 +183,7 @@ function Add() {
           </div>
         </div> */}
 
-        <div className="col-span-full">
+        {/* <div className="col-span-full">
           <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
           <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
             <div className="text-center">
@@ -156,7 +200,7 @@ function Add() {
               <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
     <div className="border-b border-gray-900/10 pb-12">
@@ -187,15 +231,15 @@ function Add() {
       </div>
     </div>
   </div>
-
+{error && <p className='text-red-600 mr-auto pl-8'>{error}</p>}
   <div className="mt-6 flex items-center justify-end gap-x-6">
     <button type="button" className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-    <button type="submit" className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+    <button type="submit" onClick={handleSubmit} className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
   </div>
 </form>
 </div>
 </div>
-
+</>
   )
 }
 

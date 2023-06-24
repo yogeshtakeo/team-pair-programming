@@ -1,12 +1,49 @@
 import viteLogo from "/vite.svg";
 // import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { IClient } from "../types/data";
+import { useNavigate } from "react-router-dom";
 
+const apiUrl = " http://localhost:3000/clients";
 
 function FirstVisit() {
+
+    const [auth, setAuth] = useState(false)
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    
+    const [password, setPassword] = useState('') 
+    const [error, setError]=useState('')   
+
+    const [clients, setClients] = useState<IClient[]>([])
+
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((res) => {
+        setClients(res);
+      });
+  }, []);
+  
+  clients.map((user) => {
+    console.log(clients)
+    if(email===user.email && password===user.password){
+      console.log("match")
+      setAuth(true)
+    }
+    // else{
+    //   setError('Invalid username or password.')
+    // }    
+  })
+  if(auth===true){
+    navigate("/home")
+  }
+  else{setError('Invalid username or password.')}
+  setEmail('')
+  setPassword('')
+} 
+
     // export async function getClients() {
     //   const response = await fetch(import.meta.env.VITE_API_URL)
     //   const data = await response.json()
@@ -87,11 +124,12 @@ function FirstVisit() {
                     />
                   </div>
                 </div>
-
+                {error && <p className='text-red-600 mr-auto pl-8'>{error}</p>}
                 <div>
                   <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    onClick={handleLogin}
                   >
                     Sign in
                   </button>
