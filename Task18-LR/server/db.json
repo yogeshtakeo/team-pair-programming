@@ -1,0 +1,30 @@
+{
+    "clients": [
+      {
+        "id": "1",
+        "email": "san@takeo.com",
+        "password": "qwerty123",
+        "fName": "Sandesh",
+        "lName": "Shrestha",
+        "country": "United States",
+        "street": "xyz",
+        "city": "Reno",
+        "state": "Nevada",
+        "zip": "12345",
+        "about": "ambiv"
+      },
+      {
+        "id": "2",
+        "email": "nam@takeo.com",
+        "password": "qwerty123",
+        "fName": "Namkhang",
+        "lName": "...",
+        "country": "United States",
+        "street": "abc",
+        "city": "def",
+        "state": "ghi",
+        "zip": "54321",
+        "about": "go get it!"
+      }
+    ]
+  }

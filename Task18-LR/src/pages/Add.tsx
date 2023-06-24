@@ -1,62 +1,74 @@
-
+import { useState } from "react";
 
 function Add() {
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
+  const [fName, setFname] = useState('')
+  const [lName, setLname] = useState('')
+  const [email, setEmail] = useState('')
+  const [country, setCountry] = useState('')
+  const [street, setStreet] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [zip, setZip] = useState('')
+  const [about, setAbout] = useState('')
+  // const [condition1, setCondition1] = useState(false)
+  // const [condition2, setCondition2] = useState(false)
 
 
   return (
 <div className="flex justify-center p-4">
     <div className="w-1/2">
 <form>
-  
   <div className="space-y-12">
     <div className="border-b border-gray-900/10 pb-12">
-      
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div className="sm:col-span-6">
           <label className="block text-sm font-medium leading-6 text-gray-900">Username</label>
           <div className="mt-2">
             <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">faker.</span>
-              <input type="text" name="username" id="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="uniqueYogesh"/>
+              <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">takeo.</span>
+              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="uniqueYogesh"/>
             </div>
           </div>
         </div>
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Password</label>
           <div className="mt-2">
-            <input type="text" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {password} onChange={event=> setPassword(event.target.value)} type="password" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Re-enter Password</label>
           <div className="mt-2">
-            <input type="text" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {password2} onChange={event=> setPassword2(event.target.value)} type="password" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">First name</label>
           <div className="mt-2">
-            <input type="text" name="first-name" id="first-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {fName} onChange={event=> setFname(event.target.value)} type="text" name="first-name" id="first-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Last name</label>
           <div className="mt-2">
-            <input type="text" name="last-name" id="last-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {lName} onChange={event=> setLname(event.target.value)} type="text" name="last-name" id="last-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-6">
           <label className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div className="mt-2">
-            <input id="email" name="email" type="email"  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {email} onChange={event=> setEmail(event.target.value)} id="email" name="email" type="email"  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Country</label>
           <div className="mt-2">
-            <select id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <select value = {country} onChange={event=> setCountry(event.target.value)} id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
               <option>United States</option>
               <option>Canada</option>
               <option>Mexico</option>
@@ -85,39 +97,39 @@ function Add() {
         <div className="col-span-full">
           <label  className="block text-sm font-medium leading-6 text-gray-900">Street address</label>
           <div className="mt-2">
-            <input type="text" name="street-address" id="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {street} onChange={event=> setStreet(event.target.value)} type="text" name="street-address" id="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-2 sm:col-start-1">
           <label className="block text-sm font-medium leading-6 text-gray-900">City</label>
           <div className="mt-2">
-            <input type="text" name="city" id="city" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {city} onChange={event=> setCity(event.target.value)} type="text" name="city" id="city" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-2">
           <label className="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
           <div className="mt-2">
-            <input type="text" name="region" id="region" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {state} onChange={event=> setState(event.target.value)} type="text" name="region" id="region" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-2">
           <label className="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
           <div className="mt-2">
-            <input type="text" name="postal-code" id="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {zip} onChange={event=> setZip(event.target.value)} type="text" name="postal-code" id="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="col-span-full">
           <label className="block text-sm font-medium leading-6 text-gray-900">About</label>
           <div className="mt-2">
-            <textarea id="about" name="about" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            <textarea value = {about} onChange={event=> setAbout(event.target.value)} id="about" name="about" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
           </div>
           <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
         </div>
 
-        <div className="col-span-full">
+        {/* <div className="col-span-full">
           <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
           <div className="mt-2 flex items-center gap-x-3">
             <svg className="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -125,10 +137,10 @@ function Add() {
             </svg>
             <button type="button" className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
           </div>
-        </div>
+        </div> */}
 
         <div className="col-span-full">
-          <label className="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
+          <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
           <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
             <div className="text-center">
               <svg className="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -147,17 +159,13 @@ function Add() {
         </div>
       </div>
     </div>
-
-    
-
     <div className="border-b border-gray-900/10 pb-12">
-      
       <div className="mt-10 space-y-10">
         <fieldset>
                     <div className="mt-6 space-y-6">
             <div className="relative flex gap-x-3">
               <div className="flex h-6 items-center">
-                <input id="comments" name="comments" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                <input  id="comments" name="comments" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
               </div>
               <div className="text-sm leading-6">
                 <label className="font-medium text-gray-900">I acknowledge that I have read the terms and conditions and agree to abide by the terms and conditions.</label>
@@ -165,7 +173,7 @@ function Add() {
             </div>
             <div className="relative flex gap-x-3">
               <div className="flex h-6 items-center">
-                <input id="candidates" name="candidates" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                <input  id="candidates" name="candidates" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
               </div>
               <div className="text-sm leading-6">
                 <label className="font-medium text-gray-900">More contracts. Blah Blah Blah Blah.</label>
@@ -182,7 +190,7 @@ function Add() {
 
   <div className="mt-6 flex items-center justify-end gap-x-6">
     <button type="button" className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-    <button type="submit" className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+    <button type="submit" className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
   </div>
 </form>
 </div>

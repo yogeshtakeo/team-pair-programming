@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Client from "./Client";
+// import Client from "./Client";
 
 const apiUrl = "https://backend-namkhang.vercel.app/clients";
 
