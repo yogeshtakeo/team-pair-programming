@@ -4,16 +4,21 @@ import Firstpage from './pages/Firstpage'
 import Registerpage from './pages/Registerpage'
 import Loginpage from './pages/Loginpage'
 import Input from './component/Input'
+import Homepage from './pages/Homepage'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Input/>
+    
      <Routes>
-      <Route path="/firstPage" element={<Firstpage/>}></Route>
+      <Route path="/first" element={<Firstpage/>}></Route>
+      <Route path="/register" element={<Registerpage/>}></Route>
+      <Route path="/login" element={<Loginpage/>}></Route>
+      <Route path="/home" element={<Homepage/>}></Route>
      </Routes>
+     
 
     </>
   )

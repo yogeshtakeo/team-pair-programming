@@ -1,16 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Loginpage = () => {
   return (
     <div className=''>
-      <h1> Frontend world </h1>
+      <h1>Login page </h1>
       <form>
         <input type='email' placeholder='email'/>
         <input type='password' placeholder='password'/>
-        <button type='submit'> Log in</button>
+        <button> <Link to="/home">Log in</Link></button>
       </form>
-      <h3> OR</h3>
-      <div>Login with gmail</div>
     </div>
   )
 

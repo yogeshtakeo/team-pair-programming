@@ -1,10 +1,13 @@
 import React from 'react'
-
-function Input() {
+interface IProps {
+  label: string,
+  placeholder : string,
+}
+function Input({label, placeholder}:IProps) {
   return (
     <div className='flex flex-col'>
-        <label>Enter your email</label>
-        <input type='text' placeholder='Enter your email'></input>
+        <label>{label}</label>
+        <input type='text' placeholder={placeholder}></input>
     </div>
   )
 }

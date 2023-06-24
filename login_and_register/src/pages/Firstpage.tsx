@@ -1,5 +1,8 @@
 import React from 'react'
 import loginimage from '../assets/loginpage.png'
+import Input from '../component/Input'
+import { Link } from 'react-router-dom';
+
 
 const Firstpage = ()=> {
   return (
@@ -11,14 +14,13 @@ const Firstpage = ()=> {
     <div className='flex flex-col align-center justify-center'>
       <h1> Frontend world </h1>
       <form className='flex flex-col'>
-        <input type='email' placeholder='email'/>
-        <input type='password' placeholder='password'/>
-        <button type='submit'> Log in</button>
+        <Input label='Enter your email' placeholder='Enter your email'></Input> 
+        <Input label='Enter the password' placeholder='Enter the password'></Input> 
+        <button type='submit'> <Link to="/login">Log in</Link></button>
       </form>
-      <h3> OR</h3>
-      <div>Sign in with </div>
+       <div>Sign in with </div>
       <div>Don't have an account?
-        <a href="Registerpage">Sign Up</a>
+        <a href="Registerpage"><Link to="/login">Sign Up</Link></a>
       </div>
     
     </div>

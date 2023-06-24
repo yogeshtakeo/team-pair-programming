@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Registerpage = () => {
   return (
@@ -16,7 +17,7 @@ const Registerpage = () => {
             </form>
         </div>
         <div>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</div>
-        <button> Sign Up</button>
+        <button> <Link to="/login">Log in</Link></button>
 
     </div>
   )
