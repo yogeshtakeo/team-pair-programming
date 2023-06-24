@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
  
   const [isClick, setIsClick]=useState(false)
-  const notify = () => toast("You got accepted!");
+  // const notify = () => toast("You got accepted!");
   
   
 
@@ -40,10 +40,10 @@ function App() {
       
       <Slider></Slider>
 
-      <div className='flex justify-center'>
-      <button onClick={notify}>CLICK ME!</button>
+      {/* <div className='flex justify-center'>
+      <button onClick={notify}>Application Status</button>
       <ToastContainer />
-      </div>
+      </div> */}
       
 
       <div className='fixed bottom-0'>  
@@ -51,7 +51,7 @@ function App() {
       </div>
       
       <div className='flex justify-center'>
-        {isClick && <Modal onClick={() => {}} className='backdrop-blur-lg'/>}
+        {isClick && <Modal/>}
       </div>
      
     </>
