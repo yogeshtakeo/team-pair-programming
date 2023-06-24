@@ -1,18 +1,20 @@
 import Navbar from './Components/Navbar'
 import Modal from './Components/Modal'
 import React from 'react'
-import Toast from './Components/Toast'
-import CourseCard from './Components/CourseCard'
+
+
 import Footer from './Components/Footer'
-import LoginForm from './Components/Toast'
+
 import {useState} from 'react'
 import Slider from './Components/Slider'
-
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
  
   const [isClick, setIsClick]=useState(false)
- 
+  const notify = () => toast("You got accepted!");
+  
   
 
   return(
@@ -37,7 +39,12 @@ function App() {
      
       
       <Slider></Slider>
-  
+
+      <div className='flex justify-center'>
+      <button onClick={notify}>CLICK ME!</button>
+      <ToastContainer />
+      </div>
+      
 
       <div className='fixed bottom-0'>  
         <Footer/> 
@@ -46,9 +53,7 @@ function App() {
       <div className='flex justify-center'>
         {isClick && <Modal onClick={() => {}} className='backdrop-blur-lg'/>}
       </div>
-
-      <Toast/>
-      
+     
     </>
   )
   
