@@ -6,6 +6,7 @@ import CourseCard from './Components/CourseCard'
 import Footer from './Components/Footer'
 import LoginForm from './Components/Toast'
 import {useState} from 'react'
+import Slider from './Components/Slider'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
   return(
     <>
+   
       <div className='flex flex-row items-center bg-indigo-100 py-2'>
 
         <a href="Logo" className='grid grid-cols-2 items-end relative left-10'>
@@ -23,23 +25,30 @@ function App() {
           <span className=" self-center font-large py-2 whitespace-nowrap ">C.U.N.Y</span>
         </a>
           
-        <div className='grid grid-flow-col fixed right-10'>
+        <div className='grid grid-flow-col absolute right-10'>
           <Navbar>ABOUT</Navbar>
           <Navbar>ACADEMICS</Navbar>
           <Navbar>FINANCIAL AID</Navbar>
           <Navbar>ADMISSIONS</Navbar>
           <Navbar onClick={() => {setIsClick(true)}}>LOGIN</Navbar>
         </div> 
-
+        
       </div>
+     
+      
+      <Slider></Slider>
   
-      <div>
-        <Footer/>
-      </div> 
+
+      <div className='fixed bottom-0'>  
+        <Footer/> 
+      </div>
       
       <div className='flex justify-center'>
-        {isClick && <Modal onClick={() => {setIsClick(false)}}/>}
+        {isClick && <Modal onClick={() => {}} className='backdrop-blur-lg'/>}
       </div>
+
+      <Toast/>
+      
     </>
   )
   
