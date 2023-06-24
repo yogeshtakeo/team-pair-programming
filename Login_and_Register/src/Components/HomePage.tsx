@@ -24,7 +24,7 @@ const HomePage = () => {
        <div className='w-24 h-24 rounded-full bg-blue-500 shadow-xl shadow-blue-600'></div>
        <div className=' h-32 border-2 border-l-0 border-slate-200 mb-4'></div>
       </div>
-      <h1 className='text-white text-3xl'>Welcome!</h1>
+      <h1 className='text-white text-4xl font-semibold'>Welcome!</h1>
       <button className='text-white  text-3xl mt-4 rounded-full'>Let's Get Started <AiOutlineDownCircle className='m-auto mt-4 hover:scale-110' size={45}/> </button>
     </div>
     </div>

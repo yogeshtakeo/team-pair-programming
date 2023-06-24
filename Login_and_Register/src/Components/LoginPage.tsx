@@ -8,7 +8,7 @@ const LoginPage = () => {
     
     
     const navigate=useNavigate()
-    const location=useLocation()
+    const location=useLocation()//useLocation hook
     
     const handleEmail=(event:ChangeEvent<HTMLInputElement>)=>{
         setEmail(event.target.value)

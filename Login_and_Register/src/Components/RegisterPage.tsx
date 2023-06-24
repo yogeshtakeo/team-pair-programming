@@ -1,5 +1,6 @@
 import React,{useState,ChangeEvent,FormEvent, ReactElement} from 'react'
 import {useNavigate } from 'react-router-dom';
+import bgimage from '../Hypercolor Gradient (3).jpg'
 const RegisterPage = () => {
   const navigate=useNavigate()
   const[username, setUsername]=useState('')
@@ -8,7 +9,7 @@ const RegisterPage = () => {
   const[confirm, setConfirm]=useState('')
   const [error, setError]=useState('')
   const[clicked, setClicked]=useState(false)
-
+//onChange event handling
   const handleUsername=(event:ChangeEvent<HTMLInputElement>)=>{
     setUsername(event.target.value)
 
@@ -20,6 +21,7 @@ const RegisterPage = () => {
   const handleEmail=(event:ChangeEvent<HTMLInputElement>)=>{
     setEmail(event.target.value)
   }
+  //
   const handleConfirm=(event:ChangeEvent<HTMLInputElement>)=>{
     setConfirm(event.target.value)
     setClicked(true)
@@ -27,6 +29,7 @@ const RegisterPage = () => {
  
   const handleSubmit=(event:FormEvent<HTMLFormElement>)=>{
     event.preventDefault()
+    //reg expression
     const passwordFormat=/^(?=.*[A-Za-z])(?=.*\d).{8,}$/
     if(!username||!email||!password||!confirm){
      setError('Please input all fields')
@@ -39,7 +42,7 @@ const RegisterPage = () => {
     }
     else{
       setError('')
-      
+      //navigate to login page (routing)
       navigate("/LoginPage",{state:{confirmPassword:confirm}})
     }
 
@@ -47,7 +50,7 @@ const RegisterPage = () => {
   }
   return (
     <div className='bg-gradient-to-b from-gray-600  via-transparent to-gray-600 w-full h-screen' >
-      <div className='w-full h-full bg-opacity-5 bg-yellow-500 p-1'>
+      <div className='w-full h-full bg-opacity-5 bg-black p-1'>
         <form className='flex flex-col items-center w-96 h-auto p-4   mx-auto shadow-md shadow-stone-600 rounded-xl mt-20 bg-stone-400' onSubmit={handleSubmit}>
             <p className='uppercase text-xl text-center font-medium mb-8'>Register your Account</p>
             <input className='border-2 p-2 w-72 border-slate-500 rounded-lg mb-8' type="text" placeholder='Set a username' onChange={handleUsername} />
@@ -62,6 +65,7 @@ const RegisterPage = () => {
            
         </form>
         </div>
+
     </div>
   )
 }
