@@ -31,7 +31,7 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAM
     animation-duration: 7s;
     animation-iteration-count: infinite;
 }
-h1, button{
+ .outline h1, button{
     z-index:100
 }
 

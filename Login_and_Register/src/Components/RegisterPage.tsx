@@ -1,6 +1,6 @@
 import React,{useState,ChangeEvent,FormEvent, ReactElement} from 'react'
 import {useNavigate } from 'react-router-dom';
-import bgimage from '../Hypercolor Gradient (3).jpg'
+
 
 
 const RegisterPage = () => {

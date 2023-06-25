@@ -2,10 +2,10 @@ import React,{useState} from 'react'
 import { ChangeEvent} from 'react';
 import {useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import{AiOutlineGoogle} from 'react-icons/ai'
+import{AiOutlineGoogle,AiOutlineClose} from 'react-icons/ai'
 import{CiFacebook,CiLinkedin} from 'react-icons/ci'
-import { BsFillPersonFill } from "react-icons/bs"; 
-import Modal from './Modal';
+
+
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
@@ -49,8 +49,9 @@ const LoginPage = () => {
   <div className='bg-gradient-to-tl from-rose-300 to-orange-300 w-full h-screen'>
     
   <div className='outline1 w-full h-screen p-1' >
-   <div className='absolute left-52'> {showModal && <Modal > <BsFillPersonFill onClose={closeModal}/></Modal> }
-    <form className='flex flex-col  w-96 h-auto p-10  mx-auto shadow-xl shadow-orange-200 rounded-xl mt-8 bg-gradient-to-tl from-fuchsia-400 to-orange-400' onSubmit={handleSubmit}>
+   
+   
+    <form className='relative flex flex-col  w-96 h-auto p-10  mx-auto shadow-xl shadow-orange-200 rounded-xl mt-8 bg-gradient-to-tl from-fuchsia-400 to-orange-400' onSubmit={handleSubmit}>
    
     <h1 className='uppercase text-center text-2xl font-semibold '>LogIn</h1>
            <label className='text-lg mb-1 mr-auto' htmlFor="email">Email</label>
@@ -68,15 +69,14 @@ const LoginPage = () => {
            <CiLinkedin className='pr-1' size={35}/>
            </div>
            <p className='mx-auto mt-2 underline'>Need an Account? <Link to="/RegisterPage" > SIGN UP</Link></p>
-
-
-           </form>
-           
-           {email}
-    {password}
-    
+</form>
+{showModal?(
+ <div className='absolute top-[1%] right-[34%] w-[32%]  h-24 rounded-md flex justify-center items-center text-lg  bg-rose-100'>
+  You entered incorrect password. Please try again!
+  <button className='mb-2' onClick={closeModal}><AiOutlineClose size={20} className='absolute top-[5%] right-2 mt-1  text-red-600 font-bold hover:scale-125'/></button>
+ </div>):('')}
     </div>
-    </div></div>
+    </div>
 
     </>
   )
