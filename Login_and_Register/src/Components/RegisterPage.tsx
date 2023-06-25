@@ -37,10 +37,10 @@ const RegisterPage = () => {
      setError('* Please input all fields')
     }
     else if(clicked && password!==confirm){
-      setError("Password doesn't match")
+      setError("* Password doesn't match")
     }
     else if(!passwordFormat.test(password)){
-      setError('Invalid format')
+      setError('* Invalid format')
     }
     else{
       setError('')
@@ -56,16 +56,16 @@ const RegisterPage = () => {
         <form className='flex flex-col w-96 h-auto p-10 mx-auto shadow-xl shadow-orange-200 rounded-xl mt-3 bg-gradient-to-tl from-fuchsia-400 to-orange-400' onSubmit={handleSubmit}>
             <p className='uppercase text-2xl text-center font-medium mb-2'>------- Register -------</p>
             <p className='text-center mb-6'>Create your account. It's free and only takes a minute</p>
-            <input className=' p-2  rounded-lg mb-6' type="text" placeholder='Full Name' onChange={handleUsername} />
+            <input className=' p-2  rounded-lg mb-4' type="text" placeholder='Full Name' onChange={handleUsername} />
            
-            <input className=' p-2   rounded-lg mb-6' type="email" placeholder='Email Address'onChange={handleEmail} />
+            <input className=' p-2   rounded-lg mb-4' type="email" placeholder='Email Address'onChange={handleEmail} />
             {}
-            <input  className='p-2  rounded-lg mb-6' type="password"  placeholder='Password' onChange={handlePassword} />
+            <input  className='p-2  rounded-lg mb-4' type="password"  placeholder='Password' onChange={handlePassword} />
            
             <input className=' p-2  rounded-lg ' type="password"  placeholder='Confirm password' onChange={handleConfirm} />
-            {error && <p className='text-red-600 mr-auto pl-8 mb-1'>{error}</p>}
+            {error && <p className='text-red-600 mr-auto  mb-1'>{error}</p>}
             <p className='mt-2 text-center'>  <input type="checkbox"/> I accept the Terms of Use & Privacy Policy</p>
-            <button className='text-lg font-semibold mt-4 bg-orange-300 rounded-xl shadow-md shadow-orange-400  hover:scale-105 p-2' type='submit'> Sign Up </button>
+            <button className='text-lg font-semibold mt-2 bg-orange-300 rounded-xl shadow-md shadow-orange-400  hover:scale-105 p-2' type='submit'> Sign Up </button>
            
         </form>
         </div>

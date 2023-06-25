@@ -31,8 +31,7 @@ const LoginPage = () => {
        
        else{
         setShowModal(true)
-         setEmail('')
-       setPassword('')
+         
        }
       
         
@@ -40,6 +39,8 @@ const LoginPage = () => {
 
       const closeModal = () => {
         setShowModal(false)
+        setEmail('')
+       setPassword('')
       }
 
     
