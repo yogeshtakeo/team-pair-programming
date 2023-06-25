@@ -24,11 +24,13 @@ function home() {
 
   return (
     <>
-    <div className="bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ...">
-      <div className="flex justify-center text-2xl font-bold m-3">Home is under construction.</div>
-      <div className="flex justify-center text-xl font-bold m-2">Visit us again.</div>
-      <div className="flex justify-center text-2xl mb-5 text-red-500">Here is the fetch data for now.</div>
+    {/* bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ... */}
+    <div className="bg-indigo-600 text-white drop-shadow-lg">
+      <div className="flex justify-center text-xl m-3">This site is under construction.</div>
+      <div className="flex justify-center text-xl m-2">Visit us again.</div>
+      
     </div>
+    <div className="flex justify-center text-xl mb-5 text-red-500">Here is the list of all users so far.</div>
     <div className="px-4 ">
       {/* <div className="flex justify-between py-2">
         <h2 className="text-2xl font-bold mb-4">
@@ -46,14 +48,11 @@ function home() {
               <th scope="col" className="px-6 py-3">
                 Email
               </th>
-              <th scope="col" className="px-6 py-3">
+              {/* <th scope="col" className="px-6 py-3">
                 Password
-              </th>
+              </th> */}
               <th scope="col" className="px-6 py-3">
                 Name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Surname
               </th>
               <th scope="col" className="px-6 py-3">
                 Country
@@ -71,17 +70,8 @@ function home() {
                     {user.id}
                   </th>
                   <td className="px-6 py-4">{user.email}</td>
-                  <td className="px-6 py-4">{user.password}</td>
                   <td className="px-6 py-4">{user.fName}</td>
-                  <td className="px-6 py-4">{user.lName}</td>
                   <td className="px-6 py-4">{user.country}</td>
-                  
-
-  {/* street: string;
-  city: string;
-  state: string;
-  zip: string;
-  about: string; */}
                 </tr>
               );
             })}

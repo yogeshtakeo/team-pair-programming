@@ -23,15 +23,26 @@ function Add() {
   const [zip, setZip] = useState('')
   const [about, setAbout] = useState('')
   const [error, setError]=useState('')
+  const [pError, setPError]=useState('')
   // const [condition1, setCondition1] = useState(false)
   // const [condition2, setCondition2] = useState(false)
-  // ||!password||!password2||!fName||!lName||!email||!country||!street||!city||!state||!zip||!about
+
   const handleSubmit = () => {
-    if(!userName){
-      setError('Please input all fields')
+    const passwordFormat=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/
+//     At least one letter (lowercase or uppercase) is required ((?=.*[A-Za-z])).
+// At least one digit is required ((?=.*\d)).
+// At least one special character from the set [!@#$%^&*] is required ((?=.*[!@#$%^&*])).
+// The password must be at least 8 characters long (.{8,}).
+
+// ||!country||!street||!city||!state||!zip||!about
+    if(!userName||!password||!password2||!fName||!email){
+      setError('Please input all necessary fields.')
      }
      else if(password!==password2){
-      setError('Passwords do not match')
+      setPError('Confirmation password does not match.')
+     }
+     else if(!passwordFormat.test(password)){
+      setPError('Password do not satisfy criteria.')
      }
      else{
   fetch(apiUrl, {
@@ -66,31 +77,37 @@ function Add() {
     <div className="w-1/2">
 <form>
   <div className="space-y-12">
-    <div className="border-b border-gray-900/10 pb-12">
+    <div className="border-b border-t border-gray-900/10 pb-12">
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div className="sm:col-span-6">
-          <label className="block text-sm font-medium leading-6 text-gray-900">Username</label>
+        <p className=" flex sm:col-span-6 text-xs">Please complete all fields marked with an asterisk (<p className="text-red-600 text-sm">*</p>)</p>
+          <label className="flex text-sm font-medium leading-6 text-gray-900 mt-5">Username&nbsp;<p className="text-red-500 text-md">*</p></label>
           <div className="mt-2">
             <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">takeo.</span>
-              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="uniqueYogesh"/>
+              {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">takeo.</span> */}
+              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block sm:col-span-8 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="uniqueYogesh"/>
             </div>
           </div>
         </div>
+        <div className="sm:col-span-6 text-xs"> Password must be at least 8 characters and contain at least 1 letter, 1 digit, and 1 special character [!@#$%^&*].
+        {pError && <p className='text-red-500 mr-auto mt-5'>{pError}</p>}
+        </div>
+        
         <div className="sm:col-span-3">
-          <label className="block text-sm font-medium leading-6 text-gray-900">Password</label>
+          <label className="flex text-sm font-medium leading-6 text-gray-900">Password&nbsp;<p className="text-red-500">*</p></label>
+          
           <div className="mt-2">
             <input value = {password} onChange={event=> setPassword(event.target.value)} type="password" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-3">
-          <label className="block text-sm font-medium leading-6 text-gray-900">Re-enter Password</label>
+          <label className="flex text-sm font-medium leading-6 text-gray-900">Confirm Password&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
-            <input value = {password2} onChange={event=> setPassword2(event.target.value)} type="password" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {password2} onChange={event=> setPassword2(event.target.value)} type="password" name="password2" id="password2" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-3">
-          <label className="block text-sm font-medium leading-6 text-gray-900">First name</label>
+          <label className="flex text-sm font-medium leading-6 text-gray-900">First name&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
             <input value = {fName} onChange={event=> setFname(event.target.value)} type="text" name="first-name" id="first-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
@@ -103,7 +120,7 @@ function Add() {
           </div>
         </div>
         <div className="sm:col-span-6">
-          <label className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <label className="flex text-sm font-medium leading-6 text-gray-900">Email address&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
             <input value = {email} onChange={event=> setEmail(event.target.value)} id="email" name="email" type="email"  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
@@ -112,7 +129,7 @@ function Add() {
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Country</label>
           <div className="mt-2">
-            <select value = {country} onChange={event=> setCountry(event.target.value)} id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <select value = {country} onChange={event=> setCountry(event.target.value)} id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" disabled>
               <option>United States</option>
               <option>Canada</option>
               <option>Mexico</option>
@@ -138,7 +155,36 @@ function Add() {
           </div>
         </div>
 
-        <div className="col-span-full">
+        <div className="sm:col-span-3">
+          <label className="block text-sm font-medium leading-6 text-gray-900">State</label>
+          <div className="mt-2">
+            <select value = {state} onChange={event=> setState(event.target.value)} id="state" name="state" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+              <option>MA</option>
+              <option>CA</option>
+              <option>NV</option>
+              <option>NY</option>
+              <option>TX</option>
+              <option>GE</option>
+              <option>WA</option>
+              <option>WY</option>
+              <option>CO</option>
+              <option>UT</option>
+              <option>Russia</option>
+              <option>Philipines</option>
+              <option>New Zealand</option>
+              <option>Ausrtalia</option>
+              <option>Fiji</option>
+              <option>Thailand</option>
+              <option>India</option>
+              <option>Pakistan</option>
+              <option>Saudi Arabia</option>
+              <option>Turkey</option>
+              <option>Greece</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="sm:col-span-5">
           <label  className="block text-sm font-medium leading-6 text-gray-900">Street address</label>
           <div className="mt-2">
             <input value = {street} onChange={event=> setStreet(event.target.value)} type="text" name="street-address" id="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -152,15 +198,8 @@ function Add() {
           </div>
         </div>
 
-        <div className="sm:col-span-2">
-          <label className="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
-          <div className="mt-2">
-            <input value = {state} onChange={event=> setState(event.target.value)} type="text" name="region" id="region" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-          </div>
-        </div>
-
-        <div className="sm:col-span-2">
-          <label className="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
+        <div className="sm:col-span-1">
+          <label className="block text-sm font-medium leading-6 text-gray-900">ZIP code</label>
           <div className="mt-2">
             <input value = {zip} onChange={event=> setZip(event.target.value)} type="text" name="postal-code" id="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
@@ -231,7 +270,7 @@ function Add() {
       </div>
     </div>
   </div>
-{error && <p className='text-red-600 mr-auto pl-8'>{error}</p>}
+{error && <p className='text-red-500 mr-auto pl-8'>{error}</p>}
   <div className="mt-6 flex items-center justify-end gap-x-6">
     <button type="button" className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
     <button type="submit" onClick={handleSubmit} className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>

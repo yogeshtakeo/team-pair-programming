@@ -8,16 +8,16 @@ const apiUrl = " http://localhost:3000/clients";
 
 function FirstVisit() {
 
-    const [auth, setAuth] = useState(false)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('') 
-    const [error, setError]=useState('')   
+  // const [auth, setAuth] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('') 
+  const [error, setError]=useState('')   
 
-    const [clients, setClients] = useState<IClient[]>([])
+  const [clients, setClients] = useState<IClient[]>([])
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    const handleLogin = () => {
+  const handleLogin1 = () => {
   useEffect(() => {
     fetch(apiUrl)
       .then((res) => res.json())
@@ -29,28 +29,23 @@ function FirstVisit() {
   clients.map((user) => {
     console.log(clients)
     if(email===user.email && password===user.password){
-      console.log("match")
-      setAuth(true)
+      console.log("authentication successful")
+      navigate('/home')
+      // setAuth(true)
     }
-    // else{
-    //   setError('Invalid username or password.')
-    // }    
+    else{
+      setError('Invalid username or password.')
+    }    
   })
-  if(auth===true){
-    navigate("/home")
-  }
-  else{setError('Invalid username or password.')}
-  setEmail('')
-  setPassword('')
+  // if(auth===true){
+  //   navigate("/home")
+  // }
+  // else{setError('Invalid username or password.')}
+  // setEmail('')
+  // setPassword('')
 } 
 
-    // export async function getClients() {
-    //   const response = await fetch(import.meta.env.VITE_API_URL)
-    //   const data = await response.json()
-    
-    //   return data
-    // }
-    return (
+return (
     <>
       {console.log("first visit")}
       <div className="flex justify-center items-center mt-10 drop-shadow-lg">
@@ -97,6 +92,7 @@ function FirstVisit() {
                       
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
+                    
                   </div>
                 </div>
                 <div>
@@ -114,23 +110,29 @@ function FirstVisit() {
                     </div>
                   </div>
                   <div className="mt-2">
-                    <input
+                  <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        value={password}
+                        onChange={event=> setPassword(event.target.value)}
+                      
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                    
+                    {/* <input
                       id="password"
                       name="password"
                       type="password"
                       value={password}
                         onChange={event=> setPassword(event.target.value)}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
+                    /> */}
                   </div>
                 </div>
                 {error && <p className='text-red-600 mr-auto pl-8'>{error}</p>}
                 <div>
-                  <button
-                    type="submit"
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    onClick={handleLogin}
-                  >
+                  <button type="submit" onClick={handleLogin1} className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Sign in
                   </button>
                 </div>
@@ -139,7 +141,7 @@ function FirstVisit() {
                 <p className=" text-center text-sm text-gray-500 px-6 py-6">
                   Not a member yet?&nbsp;
                   <a
-                    href="./add"
+                    href="/add"
                     className="font-semibold leading-6 text-l text-indigo-600 hover:text-indigo-500 ml-2 mr-2"
                   >
                     Sign Up and Add New Friends
@@ -155,4 +157,4 @@ function FirstVisit() {
   );
 }
 
-export default FirstVisit;
+export default FirstVisit
