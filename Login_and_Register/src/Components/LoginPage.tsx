@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { ChangeEvent} from 'react';
 import {useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import{AiOutlineGoogle} from 'react-icons/ai'
 import{CiFacebook,CiLinkedin} from 'react-icons/ci'
 
@@ -47,14 +48,14 @@ const LoginPage = () => {
            <input  className=' rounded-md p-2  mb-1' type="password" id="password" value={password} onChange={handlePassword}/>
            <p className='mr-auto'> <input type='checkbox'/> Remember me? </p>
            <button className=' font-semibold mt-5 mb-2 rounded-md p-2 bg-orange-300 shadow-md shadow-orange-400 hover:scale-105 text-lg' type="submit">Log In</button>
-           <p className='ml-auto'>Forget Password?</p>
+           <p className='ml-auto'>Forgot Password?</p>
            <p className='mx-auto mt-4 font-bold'>_______________OR_______________</p>
            <div className='flex justify-center text-center mt-2'>
            <AiOutlineGoogle className='pr-1' size={35}/>
            <CiFacebook className='pr-1' size={35}/>
            <CiLinkedin className='pr-1' size={35}/>
            </div>
-           <p className='mx-auto mt-2 underline'>Need an Account? SIGN UP</p>
+           <p className='mx-auto mt-2 underline'>Need an Account? <Link to="/RegisterPage" > SIGN UP</Link></p>
 
 
            </form>
