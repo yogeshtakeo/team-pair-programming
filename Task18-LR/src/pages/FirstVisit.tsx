@@ -3,43 +3,50 @@ import viteLogo from "/vite.svg";
 import { useState, useEffect } from "react";
 import { IClient } from "../types/data";
 import { useNavigate } from "react-router-dom";
+// import {Routes,Route} from 'react-router-dom'
+// import Home from "./Home";
+// import Add from "./Add";
 
 const apiUrl = " http://localhost:3000/clients";
 
-function FirstVisit() {
+function FirstVisit() { 
 
-  // const [auth, setAuth] = useState(false)
+  const [auth, setAuth] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('') 
   const [error, setError]=useState('')   
 
-  const [clients, setClients] = useState<IClient[]>([])
+  // const [submit, setSubmit]=useState('')
+
+  const [client, setClients] = useState<IClient[]>([])
 
   const navigate = useNavigate()
-
-  const handleLogin1 = () => {
   useEffect(() => {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((res) => {
-        setClients(res);
-      });
-  }, []);
-  
-  clients.map((user) => {
-    console.log(clients)
+        setClients(res)
+      })
+  }, [])
+
+  const handleLogin1 = () => {
+    
+  client.map((user) => {
+    // console.log(clients)
     if(email===user.email && password===user.password){
-      console.log("authentication successful")
-      navigate('/home')
-      // setAuth(true)
+     
+      setAuth(true)
     }
     else{
+      event.preventDefault()
       setError('Invalid username or password.')
     }    
   })
-  // if(auth===true){
-  //   navigate("/home")
-  // }
+  
+  
+  if(auth===true){
+    navigate('/home')
+  }
   // else{setError('Invalid username or password.')}
   // setEmail('')
   // setPassword('')
@@ -47,6 +54,19 @@ function FirstVisit() {
 
 return (
     <>
+   
+      {/* <Routes>
+        {auth ? (
+          <Route path="/" element={<Home />} />
+        ) : (
+          <Route path="/" element={<FirstVisit />} />
+        )}
+        <Route path="login" element={<FirstVisit />} />
+        <Route path="add" element={<Add />} />
+      </Routes> */}
+   
+
+
       {console.log("first visit")}
       <div className="flex justify-center items-center mt-10 drop-shadow-lg">
         <div className="flex justify-center items-center bg-slate-100">
@@ -130,7 +150,7 @@ return (
                     /> */}
                   </div>
                 </div>
-                {error && <p className='text-red-600 mr-auto pl-8'>{error}</p>}
+                {error && <p className='text-red-600 mr-auto'>{error}</p>}
                 <div>
                   <button type="submit" onClick={handleLogin1} className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Sign in

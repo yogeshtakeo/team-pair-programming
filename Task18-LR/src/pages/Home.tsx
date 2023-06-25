@@ -6,7 +6,7 @@ import { IClient } from "../types/data";
   const apiUrl = " http://localhost:3000/clients";
 
 
-function home() {
+function Home() {
   
   
   const [clients, setClients] = useState<IClient[]>([]);
@@ -82,6 +82,6 @@ function home() {
   );
 }
 
-export default home;
+export default Home
 
 // here we access the data from the api to state to be displayed on our home page.
