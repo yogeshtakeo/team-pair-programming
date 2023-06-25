@@ -4,12 +4,14 @@ import {useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import{AiOutlineGoogle} from 'react-icons/ai'
 import{CiFacebook,CiLinkedin} from 'react-icons/ci'
+import { BsFillPersonFill } from "react-icons/bs"; 
 import Modal from './Modal';
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
     const[password, setPassword]=useState('')
-    
+    const[showModal, setShowModal] = useState(false)
+  
     
     const navigate=useNavigate()
     const location=useLocation()//useLocation hook
@@ -28,22 +30,28 @@ const LoginPage = () => {
        navigate("/HomePage")}
        
        else{
-        'Incorrect Password! Try Again'
-        
-       }
-       setEmail('')
+        setShowModal(true)
+         setEmail('')
        setPassword('')
+       }
+      
         
+      }
+
+      const closeModal = () => {
+        setShowModal(false)
       }
 
     
   return (
   <>
-  <Modal/>
+  
   <div className='bg-gradient-to-tl from-rose-300 to-orange-300 w-full h-screen'>
+    
   <div className='outline1 w-full h-screen p-1' >
-   
+   <div className='absolute left-52'> {showModal && <Modal > <BsFillPersonFill onClose={closeModal}/></Modal> }
     <form className='flex flex-col  w-96 h-auto p-10  mx-auto shadow-xl shadow-orange-200 rounded-xl mt-8 bg-gradient-to-tl from-fuchsia-400 to-orange-400' onSubmit={handleSubmit}>
+   
     <h1 className='uppercase text-center text-2xl font-semibold '>LogIn</h1>
            <label className='text-lg mb-1 mr-auto' htmlFor="email">Email</label>
            <input className=' rounded-md  p-2 mb-5' type="email" id="email" value={email} onChange={handleEmail}/>
@@ -51,6 +59,7 @@ const LoginPage = () => {
            <input  className=' rounded-md p-2  mb-1' type="password" id="password" value={password} onChange={handlePassword}/>
            <p className='mr-auto'> <input type='checkbox'/> Remember me? </p>
            <button className=' font-semibold mt-5 mb-2 rounded-md p-2 bg-orange-300 shadow-md shadow-orange-400 hover:scale-105 text-lg' type="submit">Log In</button>
+           
            <p className='ml-auto'>Forgot Password?</p>
            <p className='mx-auto mt-4 font-bold'>_______________OR_______________</p>
            <div className='flex justify-center text-center mt-2'>
@@ -67,8 +76,8 @@ const LoginPage = () => {
     {password}
     
     </div>
-    </div>
-    
+    </div></div>
+
     </>
   )
 }
