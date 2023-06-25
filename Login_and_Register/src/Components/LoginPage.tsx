@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import { ChangeEvent} from 'react';
 import {useLocation, useNavigate } from 'react-router-dom';
+import{AiOutlineGoogle} from 'react-icons/ai'
+import{CiFacebook,CiLinkedin} from 'react-icons/ci'
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
@@ -24,7 +26,7 @@ const LoginPage = () => {
        navigate("/HomePage")}
        
        else{
-        alert("You entered wrong password")
+        'Incorrect Password! Try Again'
        }
        setEmail('')
        setPassword('')
@@ -34,20 +36,33 @@ const LoginPage = () => {
     
   return (
   <>
-  <div className='bg-gradient-to-b from-gray-600  via-transparent to-gray-600 w-full h-screen p-1' >
+  <div className='bg-gradient-to-tl from-rose-300 to-orange-300 w-full h-screen'>
+  <div className='outline1 w-full h-screen p-1' >
    
-    <form className='flex flex-col items-center w-96 h-96 p-4   mx-auto shadow-md shadow-stone-600 rounded-xl mt-20 bg-stone-400' onSubmit={handleSubmit}>
-    <h1 className='uppercase text-center text-2xl font-semibold mb-8'>Log In</h1>
-           <label className='text-lg mb-2 mr-auto pl-8' htmlFor="email">Email Address</label>
-           <input className='border-2 rounded-md w-72 p-2 mb-8' type="email" id="email" value={email} onChange={handleEmail}/>
-           <label className='text-lg mb-2  mr-auto pl-8' htmlFor='password'>Password</label>
-           <input  className='border-2 rounded-md p-2 w-72' type="password" id="password" value={password} onChange={handlePassword}/>
-           <button className=' mt-8 rounded-md w-32 mx-auto p-2 bg-stone-300 shadow-md shadow-stone-600 hover:scale-110 text-lg' type="submit">Log In</button>
+    <form className='flex flex-col  w-96 h-auto p-10  mx-auto shadow-xl shadow-orange-200 rounded-xl mt-8 bg-gradient-to-tl from-fuchsia-400 to-orange-400' onSubmit={handleSubmit}>
+    <h1 className='uppercase text-center text-2xl font-semibold '>LogIn</h1>
+           <label className='text-lg mb-1 mr-auto' htmlFor="email">Email</label>
+           <input className=' rounded-md  p-2 mb-5' type="email" id="email" value={email} onChange={handleEmail}/>
+           <label className='text-lg mb-1  mr-auto' htmlFor='password'>Password</label>
+           <input  className=' rounded-md p-2  mb-1' type="password" id="password" value={password} onChange={handlePassword}/>
+           <p className='mr-auto'> <input type='checkbox'/> Remember me? </p>
+           <button className=' font-semibold mt-5 mb-2 rounded-md p-2 bg-orange-300 shadow-md shadow-orange-400 hover:scale-105 text-lg' type="submit">Log In</button>
+           <p className='ml-auto'>Forget Password?</p>
+           <p className='mx-auto mt-4 font-bold'>_______________OR_______________</p>
+           <div className='flex justify-center text-center mt-2'>
+           <AiOutlineGoogle className='pr-1' size={35}/>
+           <CiFacebook className='pr-1' size={35}/>
+           <CiLinkedin className='pr-1' size={35}/>
+           </div>
+           <p className='mx-auto mt-2 underline'>Need an Account? SIGN UP</p>
+
+
            </form>
            
            {email}
     {password}
     
+    </div>
     </div>
    
     </>

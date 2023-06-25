@@ -32,7 +32,7 @@ const RegisterPage = () => {
     //reg expression
     const passwordFormat=/^(?=.*[A-Za-z])(?=.*\d).{8,}$/
     if(!username||!email||!password||!confirm){
-     setError('Please input all fields')
+     setError('* Please input all fields')
     }
     else if(clicked && password!==confirm){
       setError("Password doesn't match")
@@ -49,19 +49,21 @@ const RegisterPage = () => {
     
   }
   return (
-    <div className='bg-gradient-to-b from-gray-600  via-transparent to-gray-600 w-full h-screen' >
-      <div className='w-full h-full bg-opacity-5 bg-black p-1'>
-        <form className='flex flex-col items-center w-96 h-auto p-4   mx-auto shadow-md shadow-stone-600 rounded-xl mt-20 bg-stone-400' onSubmit={handleSubmit}>
-            <p className='uppercase text-xl text-center font-medium mb-8'>Register your Account</p>
-            <input className='border-2 p-2 w-72 border-slate-500 rounded-lg mb-8' type="text" placeholder='Set a username' onChange={handleUsername} />
+    <div className='bg-gradient-to-tl from-rose-300 to-orange-300 w-full h-screen' >
+      <div className='outline1 w-full h-full p-1'>
+        <form className='flex flex-col w-96 h-auto p-10 mx-auto shadow-xl shadow-orange-200 rounded-xl mt-3 bg-gradient-to-tl from-fuchsia-400 to-orange-400' onSubmit={handleSubmit}>
+            <p className='uppercase text-2xl text-center font-medium mb-2'>------- Register -------</p>
+            <p className='text-center mb-6'>Create your account. It's free and only takes a minute</p>
+            <input className=' p-2  rounded-lg mb-6' type="text" placeholder='Full Name' onChange={handleUsername} />
            
-            <input className='border-2 p-2 w-72 border-slate-500 rounded-lg mb-8' type="email" placeholder='Type your email'onChange={handleEmail} />
+            <input className=' p-2   rounded-lg mb-6' type="email" placeholder='Email Address'onChange={handleEmail} />
             {}
-            <input  className='border-2 p-2 w-72 border-slate-500 rounded-lg mb-8' type="password"  placeholder='Create password' onChange={handlePassword} />
+            <input  className='p-2  rounded-lg mb-6' type="password"  placeholder='Password' onChange={handlePassword} />
            
-            <input className='border-2 p-2 w-72 border-slate-500 rounded-lgmb-8' type="password"  placeholder='Confirm password' onChange={handleConfirm} />
-            {error && <p className='text-red-600 mr-auto pl-8'>{error}</p>}
-            <button className='text-lg mt-4 bg-stone-300 rounded-md shadow-md shadow-stone-600 w-32 p-2 hover:scale-110 ' type='submit'> Sign Up </button>
+            <input className=' p-2  rounded-lg ' type="password"  placeholder='Confirm password' onChange={handleConfirm} />
+            {error && <p className='text-red-600 mr-auto pl-8 mb-1'>{error}</p>}
+            <p className='mt-2 text-center'>  <input type="checkbox"/> I accept the Terms of Use & Privacy Policy</p>
+            <button className='text-lg font-semibold mt-4 bg-orange-300 rounded-xl shadow-md shadow-orange-400  hover:scale-105 p-2' type='submit'> Sign Up </button>
            
         </form>
         </div>
