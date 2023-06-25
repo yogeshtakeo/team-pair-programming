@@ -15,12 +15,6 @@ function Modal(props) {
     setUsername(event.target.value)
     console.log(event.target.value)
   }
-
-  // const loggedIn =(event) =>{
-  //   setIsClick(true)
-  //   alert(`${username} has logged in to the system.`);
-  // }
-  
  
 return (
   <>
