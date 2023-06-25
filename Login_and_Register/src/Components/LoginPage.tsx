@@ -4,6 +4,7 @@ import {useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import{AiOutlineGoogle} from 'react-icons/ai'
 import{CiFacebook,CiLinkedin} from 'react-icons/ci'
+import Modal from './Modal';
 
 const LoginPage = () => {
     const[email, setEmail]=useState('')
@@ -28,6 +29,7 @@ const LoginPage = () => {
        
        else{
         'Incorrect Password! Try Again'
+        
        }
        setEmail('')
        setPassword('')
@@ -37,6 +39,7 @@ const LoginPage = () => {
     
   return (
   <>
+  <Modal/>
   <div className='bg-gradient-to-tl from-rose-300 to-orange-300 w-full h-screen'>
   <div className='outline1 w-full h-screen p-1' >
    
@@ -65,7 +68,7 @@ const LoginPage = () => {
     
     </div>
     </div>
-   
+    
     </>
   )
 }
