@@ -25,20 +25,20 @@ function Modal(props) {
 return (
   <>
   
-    <div className='flex flex-col items-center justify-center bg-gray-300 border-solid border-gray-500 border-2 m-10 p-5 rounded-xl w-1/4 h-100'>
-      
+    <div className='flex flex-col items-center justify-center bg-gray-300 border-solid border-solid border-gray-400 border-2 border-2 m-10 p-5 rounded-xl w-1/4 h-100'>
+     
         <div className= "flex flex-col">
           <form>
             
              <p className='text-xl mb-4 '>LOGIN</p>
              <div className='relative'>
-             <button className='absolute right-0 bottom-5 px-1 border-solid border-black border-2 rounded-full text-xs bg-blue-900 text-white hover:bg-slate-100 hover:text-slate-900'>X</button>
+             <button className='absolute right-0 bottom-5 px-1 border-solid border-gray-400 border-2 rounded-full text-xs bg-blue-900 text-white hover:bg-slate-100 hover:text-slate-900'>X</button>
             </div>
             <p className=' text-sm '>Username</p>
-            <input type="textbox" placeholder='email@address.com' className=' rounded p-0.5 ' onChange={onInputTyped}></input>
+            <input type="textbox" placeholder='Username' className='border-solid border-gray-400 border-2 rounded p-0.5 ' onChange={onInputTyped}></input>
 
             <p className=' text-sm '>Password</p>
-            <input type="password" placeholder='Password' className=' rounded p-0.5'></input>
+            <input type="password" placeholder='Password' className='border-solid border-gray-400 border-2 rounded p-0.5'></input>
             
             <div className='flex flex-row'>
               <input type="checkbox"></input>
@@ -46,7 +46,7 @@ return (
             </div>
           </form>
           <div>
-            <button onClick={notify} className=' text-sm text-white bg-blue-900 border-solid border-gray-800 hover:bg-slate-100 hover:text-slate-900 border-2 rounded p-1 mt-2 w-1/3'>Login</button>
+            <button onClick={notify} className=' text-sm text-white bg-blue-900 border-solid border-gray-400 hover:bg-slate-100 hover:text-slate-900 border-2 rounded p-1 mt-2 w-1/3'>Login</button>
             <ToastContainer/> 
           
           </div>
