@@ -1,14 +1,16 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 // import home from "./Home";
-// import { IClient } from "../types/data";
+import { IClient } from "../types/data";
 
 const apiUrl = " http://localhost:3000/clients";
 
 function Add() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
@@ -24,31 +26,51 @@ function Add() {
   const [about, setAbout] = useState('')
   const [error, setError]=useState('')
   const [pError, setPError]=useState('')
+  const [eError, setEError]=useState('')
+  const [client, setClients] = useState<IClient[]>([])
+
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((res) => {
+        setClients(res)
+      })
+  }, [])
+
+  
   // const [condition1, setCondition1] = useState(false)
   // const [condition2, setCondition2] = useState(false)
 
   const handleSubmit = () => {
-    const passwordFormat=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/
-    
-//     At least one letter (lowercase or uppercase) is required ((?=.*[A-Za-z])).
-// At least one digit is required ((?=.*\d)).
-// At least one special character from the set [!@#$%^&*] is required ((?=.*[!@#$%^&*])).
-// The password must be at least 8 characters long (.{8,}).
-
-// ||!country||!street||!city||!state||!zip||!about
+    const passwordFormat=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    const emailFormat = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const user = client.find((user) => email === user.email);
     if(!userName||!password||!password2||!fName||!email){
       event.preventDefault()
-      setError('Please input all fields marked.')
+      setError('Please input all starred fields')
+      toast.error('Please input all starred fields')
      }
      else if(password!==password2){
       event.preventDefault()
       setPError('Confirmation password does not match.')
+      toast.error('Confirmation password does not match.')
+     }
+     else if(!emailFormat.test(email)){
+      event.preventDefault()
+      setEError('Invalid email.')
+      toast.error('Invalid email.');
      }
      else if(!passwordFormat.test(password)){
       event.preventDefault()
       setPError('Password do not satisfy criteria.')
+      toast.error('Password do not satisfy criteria.');
      }
+     else if(user) {
+      toast.error('Looks like you already have an account with us.');
+    }
      else{
+      event.preventDefault()
+    toast.error('Sign up completed.');
   fetch(apiUrl, {
     method:'POST',
     headers: {
@@ -72,66 +94,6 @@ function Add() {
   }).catch(error => {
       console.log(error)
   })
-  {
-  <>
-<div
-  className="pointer-events-auto mx-auto mb-4 hidden w-96 max-w-full rounded-lg bg-danger-100 bg-clip-padding text-sm text-danger-700 shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden"
-  id="static-example"
-  role="alert"
-  aria-live="assertive"
-  aria-atomic="true"
-  data-te-autohide="false"
-  data-te-toast-init
-  data-te-toast-show>
-  <div
-    className="flex items-center justify-between rounded-t-lg border-b-2 border-danger-200 bg-danger-100 bg-clip-padding px-4 pb-2 pt-2.5 text-danger-700">
-    <p className="flex items-center font-bold text-danger-700">
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        data-prefix="fas"
-        data-icon="times-circle"
-        className="mr-2 h-4 w-4 fill-current"
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512">
-        <path
-          fill="currentColor"
-          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
-      </svg>
-      MDBootstrap
-    </p>
-    <div className="flex items-center">
-      
-      <button
-        type="button"
-        className="ml-2 box-content rounded-none border-none opacity-80 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-        data-te-toast-dismiss
-        aria-label="Close">
-        <span
-          className="w-[1em] focus:opacity-100 disabled:pointer-events-none disabled:select-none disabled:opacity-25 [&.disabled]:pointer-events-none [&.disabled]:select-none [&.disabled]:opacity-25">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="h-6 w-6">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    className="break-words rounded-b-lg bg-danger-100 px-4 py-4 text-danger-700">
-    Hello, world! This is a toast message.
-  </div>
-</div></>
-  }
   navigate('/')
 }
 }
@@ -149,14 +111,15 @@ function Add() {
           <div className="mt-2">
             <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">takeo.</span> */}
-              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block sm:col-span-8 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="uniqueYogesh"/>
+              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block sm:col-span-8 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="BFD30"/>
             </div>
           </div>
         </div>
         <div className="sm:col-span-6 text-xs"> Password must be at least 8 characters and contain at least 1 letter, 1 digit, and 1 special character [!@#$%^&*].
-        {pError && <p className='text-red-500 mr-auto mt-5'>{pError}</p>}
         </div>
-        
+        <div className="sm:col-span-6 text-xs">
+        {pError && <p className='text-red-500 mr-auto '>{pError}</p>}
+        </div>
         <div className="sm:col-span-3">
           <label className="flex text-sm font-medium leading-6 text-gray-900">Password&nbsp;<p className="text-red-500">*</p></label>
           
@@ -183,6 +146,8 @@ function Add() {
             <input value = {lName} onChange={event=> setLname(event.target.value)} type="text" name="last-name" id="last-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
+        <div className="sm:col-span-6 text-xs">{eError && <p className='text-red-500 mr-auto text-xs'>{eError}</p>}
+        </div>
         <div className="sm:col-span-6">
           <label className="flex text-sm font-medium leading-6 text-gray-900">Email address&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
@@ -191,7 +156,7 @@ function Add() {
         </div>
 
         <div className="sm:col-span-3">
-          <label className="block text-sm font-medium leading-6 text-gray-900">Country</label>
+          <label className="block text-sm font-medium leading-6 text-gray-900">Country (Disabled option)</label>
           <div className="mt-2">
             <select value = {country} onChange={event=> setCountry(event.target.value)} id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" disabled>
               <option>United States</option>
@@ -342,6 +307,8 @@ function Add() {
 </form>
 </div>
 </div>
+<ToastContainer position={toast.POSITION.TOP_CENTER} />
+{console.log(userName, password)}
 </>
   )
 }

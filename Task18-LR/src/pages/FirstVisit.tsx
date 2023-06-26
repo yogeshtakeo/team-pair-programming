@@ -3,6 +3,8 @@ import viteLogo from "/vite.svg";
 import { useState, useEffect } from "react";
 import { IClient } from "../types/data";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import {Routes,Route} from 'react-router-dom'
 // import Home from "./Home";
 // import Add from "./Add";
@@ -11,10 +13,12 @@ const apiUrl = " http://localhost:3000/clients";
 
 function FirstVisit() { 
 
-  const [auth, setAuth] = useState(false)
+  // const [auth, setAuth] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('') 
-  const [error, setError]=useState('')   
+  // const [error, setError]=useState('')   
+  // const [eError, setEError]=useState('')
+  // const [perror, setPError]=useState('')
 
   // const [submit, setSubmit]=useState('')
 
@@ -29,28 +33,54 @@ function FirstVisit() {
       })
   }, [])
 
-  const handleLogin1 = () => {
+  const handleLogin1 = (event) => {
+    event.preventDefault();
     
-  client.map((user) => {
-    // console.log(clients)
-    if(email===user.email && password===user.password){
-     
-      setAuth(true)
+    const user = client.find((user) => email === user.email);
+
+    if (user) {
+      if (password === user.password) {
+        // setAuth(true);
+        navigate('/home');
+      } else {
+        // setError('Wrong password');
+        toast.error('Incorrect password. Please try again!');
+      }
+    } else {
+      // setError('Wrong username');
+      toast.error("Couldn't find user with the specified email. Please try again!");
     }
-    else{
-      event.preventDefault()
-      setError('Invalid username or password.')
-    }    
-  })
+
+    const users = client.find((user) => email === user.email && password === user.password);
+
+    if (users) {
+      // setAuth(true);
+      navigate('/home');
+    } 
+  };
+
+//   const handleLogin1 = () => {
+    
+//   client.map((user) => {
+//     // console.log(clients)
+//     if(email===user.email && password===user.password){
+     
+//       setAuth(true)
+//     }
+//     else{
+      
+//     }    
+//   })
+// }
   
-  
-  if(auth===true){
-    navigate('/home')
-  }
-  // else{setError('Invalid username or password.')}
-  // setEmail('')
-  // setPassword('')
-} 
+//   if(auth===true){
+//     navigate('/home')
+//   }
+//   else{
+//     event.preventDefault()
+//     setError('Invalid username or password.')
+//   }
+ 
 
 return (
     <>
@@ -102,6 +132,7 @@ return (
                   <label className="block text-sm font-medium leading-6 text-gray-900">
                     Email address
                   </label>
+                  {/* {eError && <p className='text-red-600 mr-auto'>{eError} &nbsp:&ensp </p>} */}
                   <div className="mt-2">
                     <input
                         id="email"
@@ -150,7 +181,7 @@ return (
                     /> */}
                   </div>
                 </div>
-                {error && <p className='text-red-600 mr-auto'>{error}</p>}
+                {/* {error && <p className='text-red-600 mr-auto'>{error}</p>} */}
                 <div>
                   <button type="submit" onClick={handleLogin1} className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Sign in
@@ -161,7 +192,7 @@ return (
                 <p className=" text-center text-sm text-gray-500 px-6 py-6">
                   Not a member yet?&nbsp;
                   <a
-                    href="/add"
+                    href="/register"
                     className="font-semibold leading-6 text-l text-indigo-600 hover:text-indigo-500 ml-2 mr-2"
                   >
                     Sign Up and Add New Friends
@@ -173,6 +204,8 @@ return (
           </div>
         </div>
       </div>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+      {console.log(email, password)}
     </>
   );
 }

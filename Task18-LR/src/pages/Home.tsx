@@ -46,7 +46,7 @@ function Home() {
                 ID
               </th>
               <th scope="col" className="px-6 py-3">
-                Email
+                UserID 
               </th>
               {/* <th scope="col" className="px-6 py-3">
                 Password
@@ -57,21 +57,20 @@ function Home() {
               <th scope="col" className="px-6 py-3">
                 Country
               </th>
+              <th scope="col" className="px-6 py-3">
+                Address
+              </th>
             </tr>
           </thead>
           <tbody>
             {clients.map((user) => {
               return (
                 <tr className="bg-white dark:bg-gray-800">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {user.id}
-                  </th>
-                  <td className="px-6 py-4">{user.email}</td>
+                  <td className="px-6 py-4"> {user.id}</td>
+                  <td className="px-6 py-4">{user.userid}</td>
                   <td className="px-6 py-4">{user.fName}</td>
                   <td className="px-6 py-4">{user.country}</td>
+                  <td className="px-6 py-4">{user.street}&ensp;{user.city}&ensp;{user.zip}&ensp;{user.state}</td>
                 </tr>
               );
             })}
