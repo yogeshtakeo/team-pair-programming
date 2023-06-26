@@ -1,26 +1,17 @@
 import viteLogo from "/vite.svg";
-// import React from "react";
 import { useState, useEffect } from "react";
 import { IClient } from "../types/data";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import {Routes,Route} from 'react-router-dom'
-// import Home from "./Home";
-// import Add from "./Add";
 
 const apiUrl = " http://localhost:3000/clients";
 
 function FirstVisit() { 
 
-  // const [auth, setAuth] = useState(false)
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('') 
-  // const [error, setError]=useState('')   
-  // const [eError, setEError]=useState('')
-  // const [perror, setPError]=useState('')
-
-  // const [submit, setSubmit]=useState('')
 
   const [client, setClients] = useState<IClient[]>([])
 
@@ -40,64 +31,28 @@ function FirstVisit() {
 
     if (user) {
       if (password === user.password) {
-        // setAuth(true);
         navigate('/home');
       } else {
-        // setError('Wrong password');
         toast.error('Incorrect password. Please try again!');
       }
     } else {
-      // setError('Wrong username');
       toast.error("Couldn't find user with the specified email. Please try again!");
     }
 
     const users = client.find((user) => email === user.email && password === user.password);
 
     if (users) {
-      // setAuth(true);
+      
       navigate('/home');
     } 
   };
 
-//   const handleLogin1 = () => {
-    
-//   client.map((user) => {
-//     // console.log(clients)
-//     if(email===user.email && password===user.password){
-     
-//       setAuth(true)
-//     }
-//     else{
-      
-//     }    
-//   })
-// }
-  
-//   if(auth===true){
-//     navigate('/home')
-//   }
-//   else{
-//     event.preventDefault()
-//     setError('Invalid username or password.')
-//   }
+
  
 
 return (
     <>
-   
-      {/* <Routes>
-        {auth ? (
-          <Route path="/" element={<Home />} />
-        ) : (
-          <Route path="/" element={<FirstVisit />} />
-        )}
-        <Route path="login" element={<FirstVisit />} />
-        <Route path="add" element={<Add />} />
-      </Routes> */}
-   
-
-
-      {console.log("first visit")}
+    {console.log("first visit")}
       <div className="flex justify-center items-center mt-10 drop-shadow-lg">
         <div className="flex justify-center items-center bg-slate-100">
           <div className="w-auto text-3xl px-6 py-12">
@@ -105,10 +60,6 @@ return (
               <p>&emsp;Welcome to </p>
               <p className="text-indigo-600"> &nbsp;Fakebook&ensp;</p>
             </div>
-            {/* <div className="flex justify-center items-center text-lg mb-4">
-                        <p>&emsp;Where everyone is fake </p>
-                    </div> */}
-
             <div>
               <div className="flex justify-center items-center text-sm">
                 <p>&emsp;Powered by &nbsp; </p>
@@ -116,11 +67,7 @@ return (
 
               <div className="flex justify-center items-center text-sm">
                 <img className="h-10 w-auto" src={viteLogo} />
-                {/* <img className="h-10 w-auto" src={reactLogo}/> */}
-                <img
-                  className="h-10 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                />
+                <img className="h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"/>
               </div>
             </div>
           </div>
@@ -132,7 +79,6 @@ return (
                   <label className="block text-sm font-medium leading-6 text-gray-900">
                     Email address
                   </label>
-                  {/* {eError && <p className='text-red-600 mr-auto'>{eError} &nbsp:&ensp </p>} */}
                   <div className="mt-2">
                     <input
                         id="email"
@@ -161,31 +107,11 @@ return (
                     </div>
                   </div>
                   <div className="mt-2">
-                  <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        value={password}
-                        onChange={event=> setPassword(event.target.value)}
-                      
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                    
-                    {/* <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      value={password}
-                        onChange={event=> setPassword(event.target.value)}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    /> */}
+                    <input id="password" name="password" type="password" value={password} onChange={event=> setPassword(event.target.value)} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                   </div>
                 </div>
-                {/* {error && <p className='text-red-600 mr-auto'>{error}</p>} */}
                 <div>
-                  <button type="submit" onClick={handleLogin1} className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Sign in
-                  </button>
+                  <button type="submit" onClick={handleLogin1} className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in </button>
                 </div>
               </form>
               <div className="sm:mx-auto sm:w-full sm:max-w-sm">
