@@ -13,10 +13,10 @@ import FirstVisit from "./pages/FirstVisit.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <FirstVisit />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: <FirstVisit /> },
+      // { path: "/", element: <FirstVisit /> },
       { path: "/login", element: <FirstVisit /> },
       // { path: "/client", element: <Client /> },
       // { path: "/form", element: <Form /> },

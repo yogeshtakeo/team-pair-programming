@@ -102,7 +102,7 @@ function Add() {
           <div className="mt-2">
             <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">takeo.</span> */}
-              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block sm:col-span-8 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="BFD30"/>
+              <input value = {userName} onChange={event=> setUserName(event.target.value)} type="text" name="username" id="username" className="block px-1 sm:col-span-8 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="BFD30"/>
             </div>
           </div>
         </div>
@@ -115,26 +115,26 @@ function Add() {
           <label className="flex text-sm font-medium leading-6 text-gray-900">Password&nbsp;<p className="text-red-500">*</p></label>
           
           <div className="mt-2">
-            <input value = {password} onChange={event=> setPassword(event.target.value)} type="password" name="password" id="password" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {password} onChange={event=> setPassword(event.target.value)} type="password" name="password" id="password" className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-3">
           <label className="flex text-sm font-medium leading-6 text-gray-900">Confirm Password&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
-            <input value = {password2} onChange={event=> setPassword2(event.target.value)} type="password" name="password2" id="password2" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {password2} onChange={event=> setPassword2(event.target.value)} type="password" name="password2" id="password2" className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-3">
           <label className="flex text-sm font-medium leading-6 text-gray-900">First name&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
-            <input value = {fName} onChange={event=> setFname(event.target.value)} type="text" name="first-name" id="first-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {fName} onChange={event=> setFname(event.target.value)} type="text" name="first-name" id="first-name" className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Last name</label>
           <div className="mt-2">
-            <input value = {lName} onChange={event=> setLname(event.target.value)} type="text" name="last-name" id="last-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {lName} onChange={event=> setLname(event.target.value)} type="text" name="last-name" id="last-name" className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="sm:col-span-6 text-xs">{eError && <p className='text-red-500 mr-auto text-xs'>{eError}</p>}
@@ -142,14 +142,14 @@ function Add() {
         <div className="sm:col-span-6">
           <label className="flex text-sm font-medium leading-6 text-gray-900">Email address&nbsp;<p className="text-red-500">*</p></label>
           <div className="mt-2">
-            <input value = {email} onChange={event=> setEmail(event.target.value)} id="email" name="email" type="email"  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {email} onChange={event=> setEmail(event.target.value)} id="email" name="email" type="email"  className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">Country (Disabled option)</label>
           <div className="mt-2">
-            <select value = {country} onChange={event=> setCountry(event.target.value)} id="country" name="country" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" disabled>
+            <select value = {country} onChange={event=> setCountry(event.target.value)} id="country" name="country" className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" disabled>
               <option>United States</option>
               <option>Canada</option>
               <option>Mexico</option>
@@ -178,7 +178,7 @@ function Add() {
         <div className="sm:col-span-3">
           <label className="block text-sm font-medium leading-6 text-gray-900">State</label>
           <div className="mt-2">
-            <select value = {state} onChange={event=> setState(event.target.value)} id="state" name="state" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <select value = {state} onChange={event=> setState(event.target.value)} id="state" name="state" className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
               <option>MA</option>
               <option>CA</option>
               <option>NV</option>
@@ -207,27 +207,27 @@ function Add() {
         <div className="sm:col-span-5">
           <label  className="block text-sm font-medium leading-6 text-gray-900">Street address</label>
           <div className="mt-2">
-            <input value = {street} onChange={event=> setStreet(event.target.value)} type="text" name="street-address" id="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {street} onChange={event=> setStreet(event.target.value)} type="text" name="street-address" id="street-address" className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-2 sm:col-start-1">
           <label className="block text-sm font-medium leading-6 text-gray-900">City</label>
           <div className="mt-2">
-            <input value = {city} onChange={event=> setCity(event.target.value)} type="text" name="city" id="city" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {city} onChange={event=> setCity(event.target.value)} type="text" name="city" id="city" className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
 
         <div className="sm:col-span-1">
           <label className="block text-sm font-medium leading-6 text-gray-900">ZIP code</label>
           <div className="mt-2">
-            <input value = {zip} onChange={event=> setZip(event.target.value)} type="text" name="postal-code" id="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input value = {zip} onChange={event=> setZip(event.target.value)} type="text" name="postal-code" id="postal-code" className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
         </div>
         <div className="col-span-full">
           <label className="block text-sm font-medium leading-6 text-gray-900">About</label>
           <div className="mt-2">
-            <textarea value = {about} onChange={event=> setAbout(event.target.value)} id="about" name="about" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            <textarea value = {about} onChange={event=> setAbout(event.target.value)} id="about" name="about" className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
           </div>
           <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
         </div>

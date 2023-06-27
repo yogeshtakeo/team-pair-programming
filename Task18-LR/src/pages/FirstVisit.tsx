@@ -28,8 +28,15 @@ function FirstVisit() {
     event.preventDefault();
     
     const user = client.find((user) => email === user.email);
-
-    if (user) {
+    if(!email){
+      event.preventDefault()
+      toast.error('Please input email address.')
+     }
+     else if(!password){
+      event.preventDefault()
+      toast.error('Please enter your password.')
+     }
+    else if (user) {
       if (password === user.password) {
         navigate('/home');
       } else {
@@ -81,13 +88,14 @@ return (
                   </label>
                   <div className="mt-2">
                     <input
+                        
                         id="email"
                         name="email"
                         type="email"
                         value={email}
                         onChange={event=> setEmail(event.target.value)}
                       
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                     
                   </div>
@@ -107,7 +115,7 @@ return (
                     </div>
                   </div>
                   <div className="mt-2">
-                    <input id="password" name="password" type="password" value={password} onChange={event=> setPassword(event.target.value)} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input id="password" name="password" type="password" value={password} onChange={event=> setPassword(event.target.value)} className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                   </div>
                 </div>
                 <div>
