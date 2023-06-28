@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Input from "../component/Input";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Registerpage = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +10,8 @@ const Registerpage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
+
+  const navigate = useNavigate();
 
   function HandlePassword(e: React.ChangeEvent<HTMLInputElement>): void {
     setPassword(e.target.value);
@@ -34,6 +37,7 @@ const Registerpage = () => {
     if (password === "" && password !== confirmPassword) {
       setPasswordMessage("Please Enter Password");
     } else if (regExp.test(password) && password === confirmPassword) {
+      navigate("/login");
       setPasswordMessage("Password set");
     } else if (!regExp.test(password)) {
       setPasswordMessage("Please enter valid Password");
