@@ -1,31 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Input from "../component/Input";
+import { useState } from "react";
+
+import { FormEventHandler } from "react";
 // import { useContext } from "react";
 // import { UserContext } from "../types/UserContext";
+import { useLocation, useNavigate } from "react-router-dom";
+function Loginpage() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const transferredState = location.state;
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
 
-const Loginpage = () => {
-  // const msg = useContext(UserContext);
-  // function HandleSubmit(e: React.ChangeEvent<HTMLButtonElement>) {
-  //   e.preventDefault();
-  // }
+  function HandleEmail(e: React.ChangeEvent<HTMLInputElement>): void {
+    setEmail(e.target.value);
+  }
+
+  function HandlePassword(e: React.ChangeEvent<HTMLInputElement>): void {
+    setPassword(e.target.value);
+  }
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    if (password === transferredState.confirmPassword) {
+      navigate("/home");
+    } else {
+      setMessage("enter correct password");
+    }
+  };
   return (
     <div>
       {/* <h1>{msg} </h1> */}
-      <form>
-        <Input
-          label="Enter your email"
-          placeholder="Enter your email"
-          type="text"></Input>
-        <Input
-          label="Enter the password"
-          placeholder="Create password"
-          type="password"></Input>
+      <form onSubmit={handleSubmit}>
+        <label>Enter your email</label>
+        <input placeholder="Enter email" type="text" onChange={HandleEmail} />
+        <label>Enter the password</label>
+        <input
+          placeholder="Enter the password"
+          type="password"
+          onChange={HandlePassword}
+        />
+        <p>{message}</p>
 
-        <button>Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
-};
+}
 
 export default Loginpage;

@@ -37,7 +37,7 @@ const Registerpage = () => {
     if (password === "" && password !== confirmPassword) {
       setPasswordMessage("Please Enter Password");
     } else if (regExp.test(password) && password === confirmPassword) {
-      navigate("/login");
+      navigate("/login", { state: { confirmPassword } });
       setPasswordMessage("Password set");
     } else if (!regExp.test(password)) {
       setPasswordMessage("Please enter valid Password");
