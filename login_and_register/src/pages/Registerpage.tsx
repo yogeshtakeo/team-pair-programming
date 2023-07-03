@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Input from "../component/Input";
+import registerimage from "../assets/register.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -52,44 +53,65 @@ const Registerpage = () => {
   }
 
   return (
-    <div>
-      <h6> Sign Up to emerge yourself in a digital world </h6>
-
-      <div>
-        <form>
-          <label>Enter your email</label>
-          <input
-            placeholder="Enter your email"
-            type="email"
-            onChange={HandleEmail}
-          />
-          <p>{emailMessage}</p>
-
-          <label>Enter the password</label>
-          <input
-            placeholder="Enter the password"
-            type="password"
-            onChange={HandlePassword}
-          />
-
-          <p>{passwordMessage}</p>
-
-          <label>Confirm the password</label>
-          <input
-            placeholder="re-Enter the password"
-            type="password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </form>
+    <div className="flex justify-center items-center h-full m-20">
+      <div className="flex w-2/5">
+        <img className="object-cover" src={registerimage} alt="Login Image" />
       </div>
-      <div>
-        By signing up, you agree to our Terms , Privacy Policy and Cookies
-        Policy .
+      <div className="flex flex-col justify-center items-center">
+        <div className="px-4 py-2">
+          <h1 className="text-xl bold-text mb-4">
+            Sign Up to emerge yourself in a digital world{" "}
+          </h1>
+          <form>
+            <div className="flex flex-col ">
+              <label>Enter your email</label>
+              <input
+                className="p-2 mb-2 bg-transparent focus:outline-none border-2 border-indigo-400 rounded-lg hover:border-indigo-800"
+                placeholder="Enter your email"
+                type="email"
+                onChange={HandleEmail}
+              />
+            </div>
+
+            {emailMessage && (
+              <p className="text-red-500 mr-auto ">{emailMessage}</p>
+            )}
+            <div className="flex flex-col">
+              <label>Enter the password</label>
+              <input
+                className="p-2 mb-2 bg-transparent focus:outline-none border-2 border-indigo-400 rounded-lg hover:border-indigo-800"
+                placeholder="Enter the password"
+                type="password"
+                onChange={HandlePassword}
+              />
+            </div>
+
+            {passwordMessage && (
+              <p className="text-red-500 mr-auto ">{passwordMessage}</p>
+            )}
+            <div className="flex flex-col">
+              <label>Confirm the password</label>
+              <input
+                className="p-2 mb-2 bg-transparent focus:outline-none border-2 border-indigo-400 rounded-lg hover:border-indigo-800"
+                placeholder="re-Enter the password"
+                type="password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <input type="checkbox" />
+              <span className="px-1">Agree terms and conditions</span>
+            </div>
+          </form>
+        </div>
+        <button
+          className="bg-indigo-400  p-2 rounded-lg mt-1 hover:bg-indigo-800"
+          onClick={HandleSignup}>
+          Sign Up
+          {/* <Link to="/login">Sign Up</Link> */}
+        </button>
       </div>
-      <button onClick={HandleSignup}>
-        Sign Up
-        {/* <Link to="/login">Sign Up</Link> */}
-      </button>
     </div>
   );
 };
