@@ -1,23 +1,10 @@
 
-import {useState} from 'react'
-
-
-
-
-
-
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const [errorEmailMessage, setErrorEmailMessage] = useState('')
-    const [errorPasswordMessage, setErrorPasswordMessage] = useState('')
-    const [errorIncorrectPasswordMessage, setErrorIncorrectPasswordMessage] = useState('')
-
 
 const RegisterPage = () =>{
 
 return (
     <>
      <div>
-        
         <form>
             <label htmlFor="Username">USERNAME</label>
                 <input type="username"  placeholder="Name"/>
