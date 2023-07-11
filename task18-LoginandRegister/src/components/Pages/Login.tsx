@@ -14,10 +14,10 @@ const LoginPage = () => {
     const HandleEmail = () => {
         const regExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (email === "") {
-        event.preventDefault();
+        // event.preventDefault();
         setErrorMessaage("Enter Your Email")
     } else if (!regExp.test(email)) {
-        event.preventDefault();
+        // event.preventDefault();
         setErrorMessaage("Enter Valid Email")
     }
     
